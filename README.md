@@ -1,4 +1,4 @@
-# :wave: :blush: Welcome!
+# :wave:Welcome!:blush:
 
 Hello there! My name is Franco. Welcome to my repository through my path in Become a Front End Developer with Altimetrik | 2nd Edition.
 
