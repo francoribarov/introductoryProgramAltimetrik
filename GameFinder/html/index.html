@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameFinder Login</title>
+
+    <!-- invocaciones de CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css//normalize.css">
+
+    <!-- end CSS -->
+
+    <!-- fuentes -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- end fuentes -->
+
+</head>
+<body>
+    <header>
+        <img src="../img/GAMEFINDER.svg" alt="GameFinder_Logo">
+    </header>
+    
+    <div class="main-row">
+        
+        <div class="backG" style ="background-image: url(/img/BG.png);">
+        
+            <div class="container-sm"> 
+                
+                <div class="login">
+                    <h1 id="welcome">Welcome! Log in or register</h1>
+                    
+                    <h2 id="welcome2">Log in to find the games you're looking for!</h2>
+                    <form class="formulario">
+                    
+                        <div> <!-- está bien que sea así o le pondré form-control para darle formita¿?-->
+
+                            <input class="form" type="email" id="email" placeholder="Email"> 
+                                    
+                            <input class="form" type="password" id="password" placeholder="Password"  > 
+                        
+                        </div>
+                        
+                        <div class="row justify-content-around" id="rwjf">
+                            <div class="col-auto">
+                                
+                                <div class="form-check">
+                                    
+                                    <input class="form-check-input" type="checkbox" value="" id="check-box">
+                                    <label class="rememberMe" for="check-box">Remember me</label>
+
+                                </div>
+                            
+                            </div>
+
+                            <div class="col-auto">
+                                <a href=# class="link1">Forgot password?</a>
+                            </div>
+
+                        </div>
+
+                            <div class="form-log">
+                                
+                                <button id="enter" class="btn btn-primary">Log in </button>
+
+                            </div>
+
+                            <div class="form-group-reg">
+
+                                <p>Not registered yet?  <a href=# class="link2">Register now</a></p> 
+
+                            </div>
+                            
+                                <div class="row align-items-center">
+                                 
+                                    <div class="col-auto">
+                                        <hr id="hr1">
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <p class="or">or</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <hr id="hr2">
+                                    </div>
+                                   
+                                </div>
+                        
+                                <div id="btn-vert" class="btn-group-vertical">
+
+                                    <a class="btn btn-primary" href="#" role="button" id="fb"> <img src="/img/fb.png" id="fbimg">Login with Facebook</a>
+
+                                    <a class="btn btn-primary" href="#" role="button" id="tw"> <img src="/img/tw.png" id="twimg">Login with Twitter</a>
+
+                                    <a class="btn btn-primary" href="#" role="button" id="g"> <img src="/img/g.png" id="gimg">Login with Google</a>                   
+                                
+                                </div>
+                            
+                    </form>
+                </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
