@@ -1,0 +1,250 @@
+:root{
+    --backgroundColor: #141414;
+    --colorLinks: #5FE19B;
+    --numberColor:#36B972; /* Also used for purchase color*/
+    --addToWish: #4CC986;
+    --backgroundCard: #303030; 
+    --backgroundCabezal: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
+    --dataOfGame: #939393
+}
+
+*{
+    font-family: 'Exo', sans-serif ;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: var(--backgroundColor);
+}
+
+#headerProperties{
+    background: var(--backgroundCabezal);
+    box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+    padding-left: 40px;
+    width: 1450px;
+    height: 94px;
+}
+
+#navB{
+    height: -15px;
+}
+
+#searchResults {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 362px;
+}
+  
+#searchResults ul {
+    margin: 0; 
+    padding: 0;
+}
+
+#searchResults ul li {
+    border-radius: 3px;
+    opacity: 0;
+    display: none;
+    padding: 8px 12px;
+    transition: all .5s linear;
+
+}
+
+#searchResults li {
+    list-style: none;
+    color: #3D3D3D;
+    padding-top: 10px;
+    padding-left: 14px;
+}
+
+
+.show #searchResults ul li {
+    opacity: 1;
+    display: block;
+}
+ 
+/* .focusInput{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+} */
+
+.show #searchResults {
+    padding-top: 10px;  
+}
+
+.has-search .form-control {
+    padding-left:38px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    line-height: 47px;
+    padding-top: 15px;
+    text-align: center;
+    pointer-events: none;
+    color: #939393;z-index: 3;
+}
+
+.form-control{
+    width: 362px;
+    height: 47px;
+    
+}
+
+.profile-picture{
+    width: 48px;
+    height: 48px;
+    border-radius:50%;
+    border: #FFFFFF 2px solid;
+}
+
+#log-out, #profile{
+    text-decoration-line: none;
+    color: #FFFFFF;
+    font-size: 15px;
+    text-align:end;
+    align-items: end;
+}
+
+#title{
+    width: 400px;
+    height: 65px;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+}
+
+.subTitle{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.Links{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar{
+    position: relative;
+}
+
+#home, #reviews, #new-rel, #popular{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-decoration: none;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+#menu{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#lastSearch{
+    color: #FFFFFF;
+}
+
+#content{
+    padding-left: 50px;
+    height: 700px;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#content::-webkit-scrollbar {
+    display: none; /*Others browsers*/
+}
+
+#gameFrontPage{
+    width: 362px ;
+    height: 180px ;
+    min-height: 150px;
+}
+
+.like{
+    width: 21px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top:0;
+    margin: 20px;
+}
+
+.card-title{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+#gamePosition{
+    color : var(--numberColor);
+    font-weight: 700;
+    font-size: 18px ;
+    line-height: 24px;
+    float: right;
+}
+
+.card{
+    width: 363px;
+    height: 314px;
+    background-color: var(--backgroundCard);
+    border-radius: 12px;  
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.card::-webkit-scrollbar {
+    display: none; 
+}
+
+
+.card-text{
+    color : var(--dataOfGame);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: auto;
+}
+
+#genres, #date{
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+#platforms{
+    align-content: flex-end;
+}
+
+.emptySearch{
+    padding-left: 350px;
+    padding-top: 250px;
+    font-size: 30px;
+}
+
+#home{
+    color: var(--colorLinks)
+}
+
