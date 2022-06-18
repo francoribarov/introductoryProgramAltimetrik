@@ -22,7 +22,6 @@ let global
 
 const noBackground = "img/noBackground.svg"
 
-
 /* begin getGames -> calls the api */
 const getGames = async() => {
     try {
@@ -70,12 +69,12 @@ const getData = response =>{
       
        gamesCards += `
         
-        <div class = "col-4 py-2">
+        <div class = "col-lg-4 d-block-lg col-md-6 py-2">
             <div class="card">
                 <input type ="image" class="like" value="false" src ="img/Heart.png">
-                <img class="card-img" id = "gameFrontPage" src="${game.background_image || noBackground}">
+                <img class="card-img" id = "gameFrontPage" src="${game.background_image || noBackground}" alt="gameFrontPage">
                 <div class="card-body overflow-auto">
-                    <div class = "container">
+                    <div class = "container g-0">
                         <div class= "row">
                             <div class= "col-10">
                                 <h3 class="card-title"> ${game.name}</h3>
@@ -86,28 +85,28 @@ const getData = response =>{
                             </div>
                         </div>
                     </div>
-                        <div class="container">
-                            <div class="row flex-wrap">
-                                <div class = "col-4">
+                        <div class="container g-0">
+                            <div class="row">
+                                <div class = "col-lg-4 col-5">
                                     <p class="card-text">Release date:</p>   
                                 </div>
-                                <div class = "col-4">
+                                <div class = "col-lg-4 col-7" >
                                     <p id="date" class= "card-text"> ${obtainDate(game.released)} </p>
                                 </div>
-                                <div class = "col-4 align-items-end  ps-0">
-                                    <div class ="container">
-                                        <div id="platforms" class ="row">
+                                <div class ="col-lg-4 ps-0 col-6">
+                                    <div id="platformIcons" class ="container">
+                                        <div id="platforms" class = "row platforms">
                                             ${getPlat(game.parent_platforms)}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row pt-1">
-                                <div class = "col-3">
+                            <div id ="genresDiv" class="row pt-1">
+                                <div class = "col-lg-3 col-4">
                                     <p class="card-text">Genres:</p>
                                 </div>
-                                <div class = "col-9">
+                                <div class = "col-lg-9 col-8">
                                     <p id = "genres" class= "card-text"> ${getGen(game.genres)} </p>
                                 </div>
                             </div>    
@@ -314,10 +313,11 @@ searchTermElem.addEventListener('input', function (event) {
 
 
 /* Begin lastSearches */
+
+
 const lastSearches = document.getElementById('LastSearchButton')
 let LastGameShow = ''
 let gamesSearched = ''
-
 lastSearches.addEventListener('click', () =>{
         document.getElementById('searchResults').innerHTML = '';
         if (Queue.length == 0){
@@ -335,42 +335,32 @@ lastSearches.addEventListener('click', () =>{
 
 /* end lastSearches */
 
-const switchModes = document.getElementById('flexSwitchCheckChecked')
+/* begin lightMode */
 
+const switchModes = document.getElementById('flexSwitchCheckChecked')
 
 switchModes.addEventListener('click', () => {
     document.body.classList.toggle("lightmode")
 })
 
+const switchModesMobile = document.getElementById('switchHamb')
+
+switchModesMobile.addEventListener('click', () => {
+    document.body.classList.toggle("lightmode")
+})
+
+/* end lightMode */
 
 
+/* begin search mobile */
+
+const searchMobile = document.getElementById('mobSearch')
+
+searchMobile.addEventListener('click', () => {
+    searchTermElem.select()
+    document.getElementById('searchMob').innerHTML = searchTermElem
+})
+
+/* end search mobile */
 
 getGames()
-
-/* begin like button
-
-const likeGame = likeButton => {
-
-
-
-
- 
-    if(likeButton.value ="false"){
-        likeButton.value = "true"
-        likeButton.src = 'img/Liked.png'
-        
-        console.log("xd")
-        
-    } else {
-        likeButton.value = "false"
-        likeButton.src = 'img/Heart.png'
-        console.log("F")
-    }
-
-
-window.onload= function() {
-for (let i = 0; i < 19; i++) {
-    likeButton[i].addEventListener('click', likeGame());
-}
-}}
-end like button*/

@@ -1,8 +1,10 @@
+<!--  <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gamefinder, a webpage to look for games"> 
     
     <title>GameFinder</title>
 
@@ -19,13 +21,16 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid ps-0">
-
+        <div class="container-fluid ps-0 ">
+           
             <div id="headerProperties" class="row">
-                <nav id="navB" class="navbar">
-
-                    <div id="icon" class="col-4">
-                        <svg width="269" height="36" viewBox="0 0 269 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <nav id="navB" class="navbar ">
+                    <button id = "hamburguerMenu" class="btn btn d-sm-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#latMenu" aria-controls="latMenu">
+                        <i class="bi bi-list fa-8x"></i>
+                    </button>
+                    
+                    <div id="icon" class="col-lg-4 col-8">
+                        <svg class="gameFindeTitle" viewBox="0 0 269 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9.69751 35.027C6.5362 35.027 4.28031 34.2075 2.92985 32.5685C1.61008 30.8992 0.950195 28.289 0.950195 24.7379C0.950195 23.6149 1.01158 22.4312 1.13435 21.1868C1.28781 19.9424 1.47196 18.6373 1.68681 17.2715C2.20858 13.9632 3.00658 11.095 4.08081 8.66693C5.18574 6.23883 6.67431 4.35706 8.54654 3.02161C10.4188 1.6558 12.7974 0.9729 15.6825 0.9729C18.1072 0.9729 20.1636 1.12466 21.8517 1.42817C23.5397 1.70133 25.0437 2.02002 26.3634 2.38423L26.0872 4.38741C24.7981 4.11425 23.2789 3.87144 21.5294 3.65898C19.7799 3.44652 17.8617 3.34029 15.7746 3.34029C13.3806 3.34029 11.4316 3.91697 9.9277 5.07031C8.42377 6.22366 7.22677 7.8778 6.3367 10.0327C5.47731 12.1877 4.80208 14.8434 4.311 17.9999C3.88131 20.7315 3.66647 23.0231 3.66647 24.8745C3.66647 27.5454 4.18824 29.503 5.23177 30.7474C6.30601 31.9918 8.05547 32.614 10.4802 32.614C11.2782 32.614 12.1375 32.5382 13.0583 32.3864C14.0098 32.2346 14.9459 32.0525 15.8667 31.8401C16.8181 31.6276 17.6775 31.4152 18.4448 31.2027C19.2121 30.9599 19.8106 30.7474 20.2403 30.5653L21.9898 19.5934H13.1964L13.4727 17.5902C14.3014 17.4688 15.3449 17.3929 16.6033 17.3626C17.8924 17.3019 19.4577 17.2715 21.2992 17.2715C21.6675 17.2715 22.0665 17.2867 22.4962 17.317C22.9259 17.317 23.3402 17.3322 23.7392 17.3626C24.1689 17.3626 24.5679 17.3777 24.9362 17.4081L22.1739 34.7538H20.2403L20.1482 32.3864C19.7492 32.5685 19.1507 32.8113 18.3527 33.1148C17.5854 33.4183 16.6954 33.7219 15.6825 34.0254C14.7004 34.2985 13.6875 34.5413 12.644 34.7538C11.6004 34.9359 10.6183 35.027 9.69751 35.027Z" fill="white"/>
                             <path d="M26.1609 34.7538L43.6556 1.33712H47.1084L53.4157 34.7538H50.6534L48.6738 24.4192H34.3558L28.9232 34.7538H26.1609ZM35.4607 22.0518H48.3515L44.9907 3.79556L35.4607 22.0518Z" fill="white"/>
                             <path d="M56.9571 34.7538L66.1648 1.33712H68.6509L73.577 30.9295L88.0791 1.33712H90.5652L89.138 34.7538H86.5138L87.8489 6.25401L74.2676 34.7538H71.7815L67.3157 6.34507L59.6273 34.7538H56.9571Z" fill="white"/>
@@ -38,11 +43,11 @@
                             <path d="M240.427 34.7538L245.813 1.06396H258.842C260.223 1.06396 261.481 1.21571 262.617 1.51922C263.753 1.82274 264.72 2.30835 265.518 2.97608C266.346 3.61346 266.975 4.46329 267.405 5.52558C267.835 6.58787 268.05 7.89297 268.05 9.44089C268.05 9.8658 268.019 10.3211 267.958 10.8067C267.927 11.2923 267.865 11.8083 267.773 12.3546C267.559 13.9632 267.175 15.2987 266.622 16.361C266.101 17.4233 265.502 18.2731 264.827 18.9105C264.152 19.5478 263.476 20.0335 262.801 20.3673C262.126 20.7012 261.543 20.9743 261.052 21.1868L265.195 34.7538H258.243L254.791 22.2339C254.422 22.2339 253.993 22.2339 253.501 22.2339C253.041 22.2339 252.55 22.2339 252.028 22.2339C251.537 22.2339 251.046 22.2339 250.555 22.2339C250.095 22.2036 249.665 22.1884 249.266 22.1884L247.24 34.7538H240.427ZM250.095 16.8618H255.849C256.862 16.8618 257.706 16.71 258.382 16.4065C259.057 16.103 259.594 15.6022 259.993 14.9041C260.423 14.1757 260.73 13.1741 260.914 11.8993C260.975 11.6262 261.006 11.3682 261.006 11.1254C261.036 10.8522 261.052 10.6094 261.052 10.397C261.052 9.57747 260.898 8.94009 260.591 8.48483C260.315 7.9992 259.901 7.65017 259.348 7.43771C258.827 7.22525 258.197 7.11902 257.461 7.11902H251.66L250.095 16.8618Z" fill="white"/>
                         </svg>
                     </div>
+                    <div id ="searchMob"></div>
 
-                    <div class="col-3">
+                    <div class="col-3 d-lg-block d-none">
                         <div class="form-group has-search">
-                            <!-- <div class = "focusInput"> </div> -->
-                            <span class="bi-search form-control-feedback"></span>
+                            <i class="bi-search form-control-feedback"></i>
                             <input id="searchBar" type="text" class="form-control" placeholder="Search games...">
                             <div id="searchResults">
                                 
@@ -50,9 +55,13 @@
                         </div>
 
                     </div>
-                    <div id="log-out" class="col-2 pe-5" >
+                    <div id="log-out" class="col-2 pe-5 d-lg-block d-none">
                         <button id="profile" type="button" class="btn btn-link">Log out</button>
-                        <img class="profile-picture" src="img/Custom.jpg">
+                        <img class="profile-picture" src="img/Custom.jpg" alt="profile-picture">
+                    </div>
+
+                    <div " class="mobileSearch d-sm-block d-sm-none">
+                        <i id="mobSearch" class="bi bi-search"></i>
                     </div>
 
                 </nav>
@@ -66,11 +75,11 @@
         
             <div class="row">
 
-                <div class="col-10">
+                <div class="col-md-10 col-12">
                     <h1 id="title">New and trending</h1>
                 </div>
 
-                <div  class="col-2 align-items-end pt-5">
+                <div  class="col-2 align-items-end pt-5 d-lg-block d-none">
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
@@ -81,15 +90,15 @@
         
         
             <div class="row">
-                <div class="col-10">
+                <div class="col-md-10 col-12">
                     <p class="subTitle">Based on player counts and realease date</p>
                 </div>
                 
-                <div id="views" class="col-2" >
+                <div id="views" class="col-2 d-lg-block d-none" >
                     <button id ="col-view" class="btn">
                         <svg  width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect class = "viewsColor" width="40" height="40" rx="10" fill="#515151"/>
-                            <path class= "linesColor"fill-rule="evenodd" clip-rule="evenodd" d="M27.5429 8.79993H13.2572C11.6792 8.79993 10.4001 10.0791 10.4001 11.6571V15.9428C10.4001 17.5207 11.6792 18.7999 13.2572 18.7999H27.5429C29.1209 18.7999 30.4001 17.5207 30.4001 15.9428V11.6571C30.4001 10.0791 29.1209 8.79993 27.5429 8.79993ZM11.8287 11.6571C11.8287 10.8681 12.4683 10.2285 13.2573 10.2285H27.543C28.3319 10.2285 28.9715 10.8681 28.9715 11.6571V15.9428C28.9715 16.7318 28.3319 17.3714 27.543 17.3714H13.2573C12.4683 17.3714 11.8287 16.7318 11.8287 15.9428V11.6571ZM13.2572 21.6571H27.5429C29.1209 21.6571 30.4001 22.9362 30.4001 24.5142V28.7999C30.4001 30.3779 29.1209 31.6571 27.5429 31.6571H13.2572C11.6792 31.6571 10.4001 30.3779 10.4001 28.7999V24.5142C10.4001 22.9362 11.6792 21.6571 13.2572 21.6571ZM11.8287 24.5141C11.8287 23.7252 12.4683 23.0856 13.2573 23.0856H27.543C28.3319 23.0856 28.9715 23.7252 28.9715 24.5141V28.7999C28.9715 29.5888 28.3319 30.2284 27.543 30.2284H13.2573C12.4683 30.2284 11.8287 29.5888 11.8287 28.7999V24.5141Z" fill="#FFFDF5"/>
+                            <path class= "linesColor" fill-rule="evenodd" clip-rule="evenodd" d="M27.5429 8.79993H13.2572C11.6792 8.79993 10.4001 10.0791 10.4001 11.6571V15.9428C10.4001 17.5207 11.6792 18.7999 13.2572 18.7999H27.5429C29.1209 18.7999 30.4001 17.5207 30.4001 15.9428V11.6571C30.4001 10.0791 29.1209 8.79993 27.5429 8.79993ZM11.8287 11.6571C11.8287 10.8681 12.4683 10.2285 13.2573 10.2285H27.543C28.3319 10.2285 28.9715 10.8681 28.9715 11.6571V15.9428C28.9715 16.7318 28.3319 17.3714 27.543 17.3714H13.2573C12.4683 17.3714 11.8287 16.7318 11.8287 15.9428V11.6571ZM13.2572 21.6571H27.5429C29.1209 21.6571 30.4001 22.9362 30.4001 24.5142V28.7999C30.4001 30.3779 29.1209 31.6571 27.5429 31.6571H13.2572C11.6792 31.6571 10.4001 30.3779 10.4001 28.7999V24.5142C10.4001 22.9362 11.6792 21.6571 13.2572 21.6571ZM11.8287 24.5141C11.8287 23.7252 12.4683 23.0856 13.2573 23.0856H27.543C28.3319 23.0856 28.9715 23.7252 28.9715 24.5141V28.7999C28.9715 29.5888 28.3319 30.2284 27.543 30.2284H13.2573C12.4683 30.2284 11.8287 29.5888 11.8287 28.7999V24.5141Z" fill="#FFFDF5"/>
                         </svg>
                     </button>
             
@@ -107,9 +116,39 @@
 
        <!-- Begin container for the sidebar and the cards-->
         <div id="mainC" class="container-fluid ps-4">
-            
+              
+            <div class="offcanvas offcanvas-start d-block d-xl-none" tabindex =-1 id="latMenu" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <img class="profile-picture" src="img/Custom.jpg" alt="profile-picture">
+                    <h4 class="offcanvas-title">Jane Doe</h4>
+                    <p class="user">@janedoe</p>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <hr>
+                <div class="offcanvas-body">
+
+                    <div class="dropdown">
+                        <ul>
+                        <li><a id ="home" class="dropdown-item" href="#">Home</a></li>
+                        <li><a class="dropdown-item" href="#">Reviews</a></li>
+                        <li><a class="dropdown-item" href="#">New Release</a></li>
+                        <li><a class="dropdown-item" href="#">Popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="switchs">
+                        <hr>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="switchHamb">Dark Mode</label>
+                            <input class="form-check-input" type="checkbox" id="switchHamb" checked>
+                            <div class="state"></div>
+                        </div> 
+                        <hr>
+                        <button id="lOut" type="button" class="btn btn-link">Log out</button>
+                    </div>
+                </div>
+            </div>
             <div id ="sidebar" class="row">
-                <div class="col-2 pt-3 ps-0 d-flex">
+                <div class="col-lg-2 pt-3 ps-0 d-lg-block d-none">
                     <div class=" align-items-start px-3 pt-2 ">
                         <a href="#" class="">
                             <p id="home" class="">Home</p>
@@ -118,7 +157,7 @@
                             <p id="reviews" class="">Reviews</p>
                         </a>
                         <a href="#" class = "pt-0">
-                            <p id="new-rel"class="">New realeases</p>
+                            <p id="new-rel" class="">New realeases</p>
                         </a>
 
                         <div class="nav-pills align-items-start pt-3" id="menu">
@@ -150,9 +189,11 @@
                             </a>
                             
                             <div class ="pt-4">  
-                            <a href="#" class="nav-item">
-                                <p id="popular"> Popular<p>
-                            </a>
+                                <a href="#" class="nav-item">
+                                    <p id="popular">
+                                        Popular
+                                    <p>
+                                </a>
 
                                 <a href="#" class="nav-item pt-0" id="lastSearch">
                                     <p id="LastSearchButton">
@@ -178,7 +219,7 @@
                 </div>
                 
                 <!-- begin Injection cards -->
-                <div id ="content" class="col-10 overflow-scroll ps-0">
+                <div id ="content" class="col-lg-10 overflow-scroll ps-0 col-12 ">
                     <div id ="cards" class="row gx-1 py-4">
                     </div> 
                 </div>
