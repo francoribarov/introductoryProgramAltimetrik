@@ -7,7 +7,12 @@
     --backgroundCabezal: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
     --dataOfGame: #939393;
     --fontColor: #FFFFFF;
-    
+    --iconsColor: #FFFFFF;
+    --switchColor: #5F81FB;
+    --backViewColor: #515151;
+    --frontViewColor: #FFFDF5;
+    --backViewDisabledColor: #303030;
+    --frontViewDisabledColor: #515151;
 }
 
 *{
@@ -31,6 +36,11 @@ body, html{
     --fontColor: #515151;
     --backgroundColor: #E5E5E5;
     --backgroundCard: #FFFFFF;
+    --iconsColor: #515151;
+    --backViewColor: #939393;
+    --frontViewColor: #515151;
+    --backViewDisabledColor: #D8D8D8;
+    --frontViewDisabledColor: #C4C4C4;
 } 
 
 #headerProperties{
@@ -144,11 +154,74 @@ body, html{
     line-height: 24px;
 }
 
+#flexSwitchCheckChecked{
+    cursor: pointer;
+    width: 44px;
+    height: 22px;
+    position: absolute;
+    margin-left: 20px;
+}
+
+.form-switch .form-check-input{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 10px;
+    background-color: #E1E1E4;
+    border-color: transparent;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    
+}
+
+.state::before{
+    content: 'OFF';
+    position: absolute;
+    color: var(--dataOfGame);
+    margin-top: -18px;
+    margin-left: 120px;
+    font-size: 10px;
+}
+
+input:checked + .state::before{  
+    content:'ON';
+    position: absolute;
+    margin-left: 107px;
+    font-size: 10px;
+    color:var(--iconsColor);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--switchColor);
+}
+
+.form-check-label{
+    padding-top: 3px;
+}
+
+#views{
+    padding-left: 80px;
+}
+
+.viewsColor{
+    fill: var(--backViewColor);
+}
+
+.linesColor{
+    fill: var(--frontViewColor);
+}
+
+.disabledViews{
+    fill: var(--backViewDisabledColor);
+}
+
+.disabledlines{
+    fill: var(--frontViewDisabledColor);
+}
+
 .Links{
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
-
 }
 
 .wrapper {
@@ -245,7 +318,6 @@ a:link{
     display: none; 
 }
 
-
 .card-text{
     color : var(--dataOfGame);
     font-weight: 500;
@@ -261,5 +333,9 @@ a:link{
 
 #platforms{
     align-content: flex-end;
+}
+
+.icons{
+    fill: var(--iconsColor);
 }
 
