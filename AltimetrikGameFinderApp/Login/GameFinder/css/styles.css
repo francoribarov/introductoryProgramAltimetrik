@@ -4,7 +4,7 @@
     --numberColor:#36B972; /* Also used for purchase color*/
     --addToWish: #4CC986;
     --backgroundCard: #303030; 
-    --backgroundCabezal: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
+    --backgroundHead: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
     --dataOfGame: #939393;
     --fontColor: #FFFFFF;
     --iconsColor: #FFFFFF;
@@ -15,6 +15,10 @@
     --frontViewDisabledColor: #515151;
     --backgroundHamb: #2A2A2A;
     --canvassCross: #FFFFFF;
+    --searchResults:#3D3D3D;
+    --white:#FFFFFF;
+    --hasSearch:#939393;
+    --backgroundForm:#E1E1E4;
 }
 
 *{
@@ -24,7 +28,7 @@
     color: var(--fontColor);
 }
 
-* .lightMode{
+* .lightmode{
     color: var(--lightModeFont);
 }
 
@@ -34,7 +38,7 @@ body, html{
     background-color: var(--backgroundColor);
 }
 
-.lightMode{
+.lightmode{
     --fontColor: #515151;
     --backgroundColor: #E5E5E5;
     --backgroundCard: #FFFFFF;
@@ -48,7 +52,7 @@ body, html{
 }
 
 #headerProperties{
-    background: var(--backgroundCabezal);
+    background: var(--backgroundHead);
     box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
     padding-left: 40px;
     width: auto;
@@ -66,7 +70,7 @@ body, html{
 
 #searchResults {
     position: absolute;
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 4px;
     margin-top: 10px;
     width: 362px;
@@ -90,7 +94,7 @@ body, html{
 
 #searchResults li {
     list-style: none;
-    color: #3D3D3D;
+    color: var(--searchResults);
     padding-top: 10px;
     padding-left: 14px;
 }
@@ -114,10 +118,10 @@ body, html{
     width: 38px;
     height: 38px;
     line-height: 47px;
-    padding-top: 15px;
     text-align: center;
     pointer-events: none;
-    color: #939393;z-index: 3;
+    color: var(--hasSearch);
+    z-index: 3;
 }
 
 .form-control{
@@ -130,12 +134,12 @@ body, html{
     width: 48px;
     height: 48px;
     border-radius:50%;
-    border: #FFFFFF 2px solid;
+    border: var(--white) 2px solid;
 }
 
 #log-out, #profile{
     text-decoration-line: none;
-    color: #FFFFFF;
+    color: var(--white);
     font-size: 15px;
     text-align:end;
     align-items: end;
@@ -199,7 +203,7 @@ body, html{
     margin-top: 5px;
     margin-left: 8px;
     font-size: 10px;
-    background-color: #E1E1E4;
+    background-color: var(--backgroundForm);
     border-color: transparent;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
     
@@ -309,7 +313,7 @@ a:link{
 
 #gameFrontPage{
     height: 180px;
-        min-height: 150px;
+    min-height: 150px;
 }
 
 
@@ -385,101 +389,102 @@ a:link{
         margin-top: 50px;
         padding-bottom: 10px ;
     }
-}
-
-
-#latMenu{
-    background-color: var(--backgroundHamb);
-}
-
-h4{
-    position: absolute;
-    padding-left: 60px;
-    padding-bottom: 20px;
-}
-
-.user{
-    position: absolute;
-    padding-top: 40px;
-    padding-left: 60px;
-}
-
-#cross{
-    color: var(--canvassCross);
-}
-
-#latMenu ul{
-    list-style: none;
-    padding-left: 0;
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 28px;
-}
-
-#latMenu ul li{
-    padding-top: 15px;
-}
-
-.dropdown{
-    margin-top: -30px;
-}
-
-.switchs{
-    padding-top: 425px;
-    font-size: 15px;
+    #latMenu{
+        background-color: var(--backgroundHamb);
+    }
+    
+    h4{
+        position: absolute;
+        padding-left: 60px;
+        padding-bottom: 20px;
+    }
+    
+    .user{
+        position: absolute;
+        padding-top: 40px;
+        padding-left: 60px;
+    }
+    
+    #cross{
+        color: var(--canvassCross);
+    }
+    
+    #latMenu ul{
+        list-style: none;
+        padding-left: 0;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 28px;
+    }
+    
+    #latMenu ul li{
+        padding-top: 15px;
+    }
+    
+    .dropdown{
+        margin-top: -30px;
+    }
+    
+    .switchs{
+        padding-top: 425px;
+        font-size: 15px;
+        
+    }
+    
+    #lOut{
+        color: var(--fontColor);
+        text-decoration: none;
+        padding-left: 0;
+        line-height: 20px;
+        font-size: 15px;   
+    }
+    
+    #switchHamb{
+        cursor: pointer;
+        width: 44px;
+        height: 22px;
+        position: absolute;
+        margin-left: 20px;
+    }
+    
+    .form-switch{
+        padding: 0;
+    }
+    
+    .form-switch .form-check-input{
+        position: absolute;
+        margin-top: 5px;
+        margin-left: 8px;
+        font-size: 10px;
+        background-color: #E1E1E4;
+        border-color: transparent;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        
+    }
+    
+    .state::before{
+        content: 'OFF';
+        position: absolute;
+        color: var(--dataOfGame);
+        margin-top: -18px;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    
+    input:checked + .state::before{  
+        content:'ON';
+        position: absolute;
+        margin-left: 103px;
+        font-size: 10px;
+        color:var(--iconsColor);
+    }
+    
+    .form-switch .form-check-input:checked {
+        background-color: var(--switchColor);
+    }
     
 }
 
-#lOut{
-    color: var(--fontColor);
-    text-decoration: none;
-    padding-left: 0;
-    line-height: 20px;
-    font-size: 15px;   
-}
 
-#switchHamb{
-    cursor: pointer;
-    width: 44px;
-    height: 22px;
-    position: absolute;
-    margin-left: 20px;
-}
-
-.form-switch{
-    padding: 0;
-}
-
-.form-switch .form-check-input{
-    position: absolute;
-    margin-top: 5px;
-    margin-left: 8px;
-    font-size: 10px;
-    background-color: #E1E1E4;
-    border-color: transparent;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-    
-}
-
-.state::before{
-    content: 'OFF';
-    position: absolute;
-    color: var(--dataOfGame);
-    margin-top: -18px;
-    margin-left: 1150px;
-    font-size: 10px;
-}
-
-input:checked + .state::before{  
-    content:'ON';
-    position: absolute;
-    margin-left: 103px;
-    font-size: 10px;
-    color:var(--iconsColor);
-}
-
-.form-switch .form-check-input:checked {
-    background-color: var(--switchColor);
-}
 
 

@@ -2,7 +2,7 @@
     --colorLogIn: #4CC986;
     --colorLinks: #5FE19B;
     --white:  #FFFFFF;
-    --backLoginFormColour: rgba(0,0,0,0.6); /* queda más parecido 0.6 que 0.5*/
+    --backLoginFormColour: rgba(0,0,0,0.6); /* more accurate with 0,6 instead of 0.5*/
     --checkColor:#36B972;
     --backgroundSlider:#515151;
     --loginError: #FB5F5F;
@@ -74,7 +74,7 @@ form{
 
 .checkField{
     border-color: var(--loginError);
-    border-top: #FB5F5F;
+    border-top: var(--loginError);
 }
 
 .errorInForm{
@@ -222,6 +222,7 @@ hr{
 
 #r-arrow{
     padding-left: 45px;
+    z-index: 10;
 }
 
 #l-arrow{

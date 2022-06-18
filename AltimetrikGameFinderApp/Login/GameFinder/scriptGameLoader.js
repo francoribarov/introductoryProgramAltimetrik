@@ -26,8 +26,26 @@ const noBackground = "img/noBackground.svg"
 const getGames = async() => {
     try {
         if (Search){
-
-            respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&search=${gameSearch}&page=${pageCounterForSearches}`)
+            if (gameSearch == "Playstation" || gameSearch === "PC " || gameSearch === "Xbox" || gameSearch === "Nintendo"){ // it is a console
+                switch (gameSearch) {
+                    case ("Playstation"):
+                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=2&page=${pageCounterForSearches}`)
+                      
+                    case ("PC "):
+                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=1&page=${pageCounterForSearches}`)
+                        
+                    case ("Xbox"):
+                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=3&page=${pageCounterForSearches}`)
+                    
+                    case ("Nintendo"):
+                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=7&page=${pageCounterForSearches}`)
+                        break;
+                
+                }
+            } else {
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&search=${gameSearch}&page=${pageCounterForSearches}`)
+            }
+           
             searchResponse = await respSearch.json()
             if (respSearch.status == 200){
                 if (searchResponse.next == null) stopLoading = true;
@@ -357,8 +375,7 @@ switchModesMobile.addEventListener('click', () => {
 const searchMobile = document.getElementById('mobSearch')
 
 searchMobile.addEventListener('click', () => {
-    searchTermElem.select()
-    document.getElementById('searchMob').innerHTML = searchTermElem
+    /*Work in progress */
 })
 
 /* end search mobile */
