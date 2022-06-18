@@ -5,14 +5,20 @@
     --addToWish: #4CC986;
     --backgroundCard: #303030; 
     --backgroundCabezal: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
-    --dataOfGame: #939393
+    --dataOfGame: #939393;
+    --fontColor: #FFFFFF;
+    
 }
 
 *{
     font-family: 'Exo', sans-serif ;
     font-style: normal;
     font-weight: 400;
-    color: #FFFFFF;
+    color: var(--fontColor);
+}
+
+* .lightMode{
+    color: var(--lightModeFont);
 }
 
 body, html{
@@ -20,6 +26,12 @@ body, html{
     height: 100%;
     background-color: var(--backgroundColor);
 }
+
+.lightMode{
+    --fontColor: #515151;
+    --backgroundColor: #E5E5E5;
+    --backgroundCard: #FFFFFF;
+} 
 
 #headerProperties{
     background: var(--backgroundCabezal);
@@ -161,6 +173,10 @@ body, html{
     text-decoration: none;
 }
 
+#home{
+    color: var(--colorLinks)
+}
+
 a:link{
     text-decoration: none;
 }
@@ -171,7 +187,7 @@ a:link{
 }
 
 #lastSearch{
-    color: #FFFFFF;
+    color: var(--fontColor);
 }
 
 #content{
@@ -224,6 +240,7 @@ a:link{
     scrollbar-width: none;  
 }
 
+
 .card::-webkit-scrollbar {
     display: none; 
 }
@@ -239,11 +256,10 @@ a:link{
 
 #genres, #date{
     line-height: 18px;
-    color: #FFFFFF;
+    color: var(--fontColor);
 }
 
 #platforms{
     align-content: flex-end;
 }
-
 

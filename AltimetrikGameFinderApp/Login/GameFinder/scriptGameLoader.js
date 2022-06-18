@@ -335,6 +335,15 @@ lastSearches.addEventListener('click', () =>{
 
 /* end lastSearches */
 
+const switchModes = document.getElementById('flexSwitchCheckChecked')
+switchModes.addEventListener('click', () => {
+    document.body.classList.toggle("lightmode")
+    
+})
+
+
+
+
 getGames()
 
 /* begin like button
