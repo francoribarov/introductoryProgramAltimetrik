@@ -39,6 +39,8 @@ body, html{
     border-radius: 4px;
     margin-top: 10px;
     width: 362px;
+    max-height: 150px;
+    overflow: auto;
 }
   
 #searchResults ul {
@@ -146,6 +148,12 @@ body, html{
     position: relative;
 }
 
+.emptySearch{
+    padding-left: 350px;
+    padding-top: 250px;
+    font-size: 30px;
+}
+
 #home, #reviews, #new-rel, #popular{
     font-weight: 700;
     font-size: 20px;
@@ -238,13 +246,4 @@ a:link{
     align-content: flex-end;
 }
 
-.emptySearch{
-    padding-left: 350px;
-    padding-top: 250px;
-    font-size: 30px;
-}
-
-#home{
-    color: var(--colorLinks)
-}
 

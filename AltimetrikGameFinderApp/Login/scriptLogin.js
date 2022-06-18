@@ -1,6 +1,7 @@
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const submitLog= document.getElementById('enter')
+const togglePassword = document.getElementById('showPassword')
 let resp
 let response
 
@@ -33,8 +34,7 @@ submitLog.addEventListener('click', async e => {
                 password: password.value
             })
         },
-        resp = await fetch("http://localhost:3000/login",dataToValue),
-        response = await resp.json()
+        resp = await fetch("http://localhost:3000/login",dataToValue)
         if (!resp.ok){
             throw e
         }
@@ -42,8 +42,17 @@ submitLog.addEventListener('click', async e => {
         localStorage.setItem("email", email.value)
         window.location.replace("GameFinder/GameFinder.html")
     } catch (e) {
-            console.log(resp.status)
+        document.querySelector('span').textContent = "Please, check the data"
     }
          
         
 })
+
+togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    // toggle the icon
+    this.classList.toggle("bi-eye");
+})
+
+
