@@ -1,0 +1,490 @@
+:root{
+    --backgroundColor: #141414;
+    --colorLinks: #5FE19B;
+    --numberColor:#36B972; /* Also used for purchase color*/
+    --addToWish: #4CC986;
+    --backgroundCard: #303030; 
+    --backgroundHead: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
+    --dataOfGame: #939393;
+    --fontColor: #FFFFFF;
+    --iconsColor: #FFFFFF;
+    --switchColor: #5F81FB;
+    --backViewColor: #515151;
+    --frontViewColor: #FFFDF5;
+    --backViewDisabledColor: #303030;
+    --frontViewDisabledColor: #515151;
+    --backgroundHamb: #2A2A2A;
+    --canvassCross: #FFFFFF;
+    --searchResults:#3D3D3D;
+    --white:#FFFFFF;
+    --hasSearch:#939393;
+    --backgroundForm:#E1E1E4;
+}
+
+*{
+    font-family: 'Exo', sans-serif ;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--fontColor);
+}
+
+* .lightmode{
+    color: var(--lightModeFont);
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: var(--backgroundColor);
+}
+
+.lightmode{
+    --fontColor: #515151;
+    --backgroundColor: #E5E5E5;
+    --backgroundCard: #FFFFFF;
+    --iconsColor: #515151;
+    --backViewColor: #939393;
+    --frontViewColor: #515151;
+    --backViewDisabledColor: #D8D8D8;
+    --frontViewDisabledColor: #C4C4C4;
+    --backgroundHamb: #FFFFFF;
+    --canvassCross: #515151;
+}
+
+#headerProperties{
+    background: var(--backgroundHead);
+    box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+    padding-left: 40px;
+    width: auto;
+    height: 94px;
+}
+
+.gameFindeTitle{
+    width: 269px ;
+    height: 36px;
+}
+
+#navB{
+    height: -15px;
+}
+
+#searchResults {
+    position: absolute;
+    background-color: var(--white);
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 362px;
+    max-height: 150px;
+    overflow: auto;
+}
+  
+#searchResults ul {
+    margin: 0; 
+    padding: 0;
+}
+
+#searchResults ul li {
+    border-radius: 3px;
+    opacity: 0;
+    display: none;
+    padding: 8px 12px;
+    transition: all .5s linear;
+
+}
+
+#searchResults li {
+    list-style: none;
+    color: var(--searchResults);
+    padding-top: 10px;
+    padding-left: 14px;
+}
+
+
+.show #searchResults ul li {
+    opacity: 1;
+    display: block;
+}
+ 
+.show #searchResults {
+    padding-top: 10px;  
+}
+
+.has-search .form-control {
+    padding-left:38px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    line-height: 47px;
+    text-align: center;
+    pointer-events: none;
+    color: var(--hasSearch);
+    z-index: 3;
+}
+
+.form-control{
+    width: 362px;
+    height: 47px;
+    
+}
+
+.profile-picture{
+    width: 48px;
+    height: 48px;
+    border-radius:50%;
+    border: var(--white) 2px solid;
+}
+
+#log-out, #profile{
+    text-decoration-line: none;
+    color: var(--white);
+    font-size: 15px;
+    text-align:end;
+    align-items: end;
+}
+
+
+
+#title{
+    height: 65px;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+}
+
+
+.subTitle{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 720px) {
+    #title{
+        position: absolute;
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .subTitle{
+        position: relative;
+        font-size: 14px;
+        line-height: 18px;
+        padding-top: 58px;
+        margin-bottom: 0;
+    }
+    .gameFindeTitle{
+        width: 138px;
+        height: 18px;
+        margin-left: -20px;
+    }
+    #headerProperties{
+        height: 50px;
+    }
+    #icon{
+        padding-left: 30px;
+    }
+}
+
+.mobileSearch{
+    padding-right: 20px;
+}
+
+#flexSwitchCheckChecked{
+    cursor: pointer;
+    width: 44px;
+    height: 22px;
+    position: absolute;
+    margin-left: 20px;
+}
+
+.form-switch .form-check-input{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 10px;
+    background-color: var(--backgroundForm);
+    border-color: transparent;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    
+}
+
+.state::before{
+    content: 'OFF';
+    position: absolute;
+    color: var(--dataOfGame);
+    margin-top: -18px;
+    margin-left: 120px;
+    font-size: 10px;
+}
+
+input:checked + .state::before{  
+    content:'ON';
+    position: absolute;
+    margin-left: 107px;
+    font-size: 10px;
+    color:var(--iconsColor);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--switchColor);
+}
+
+.form-check-label{
+    padding-top: 3px;
+}
+
+#views{
+    padding-left: 80px;
+}
+
+.viewsColor{
+    fill: var(--backViewColor);
+}
+
+.linesColor{
+    fill: var(--frontViewColor);
+}
+
+.disabledViews{
+    fill: var(--backViewDisabledColor);
+}
+
+.disabledlines{
+    fill: var(--frontViewDisabledColor);
+}
+
+.Links{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar{
+    position: relative;
+}
+
+.emptySearch{
+    padding-left: 350px;
+    padding-top: 250px;
+    font-size: 30px;
+}
+
+#home, #reviews, #new-rel, #popular{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-decoration: none;
+}
+
+#home{
+    color: var(--colorLinks)
+}
+
+a:link{
+    text-decoration: none;
+}
+
+#menu{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#lastSearch{
+    color: var(--fontColor);
+}
+
+#content{
+    padding-left: 50px;
+    height: 700px;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#content::-webkit-scrollbar {
+    display: none; /*Others browsers*/
+}
+
+#gameFrontPage{
+    height: 180px;
+    min-height: 150px;
+}
+
+
+.like{
+    width: 21px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top:0;
+    margin: 20px;
+}
+
+.card-title{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+#gamePosition{
+    color : var(--numberColor);
+    font-weight: 700;
+    font-size: 18px ;
+    line-height: 24px;
+    float: right;
+}
+
+.card{
+    width: 363px;
+    height: 314px;
+    background-color: var(--backgroundCard);
+    border-radius: 12px;  
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+
+.card::-webkit-scrollbar {
+    display: none; 
+}
+
+.card-text{
+    color : var(--dataOfGame);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: auto;
+}
+
+#genres, #date{
+    line-height: 18px;
+    color: var(--fontColor);
+}
+
+#platforms{
+    align-content: flex-end;
+}
+
+.icons{
+    fill: var(--iconsColor);
+}
+
+@media screen and (max-width: 600px) {
+    .card{
+        width: 288px;
+        height: 332px;
+    }
+    #genresDiv{
+       position: relative;
+       margin-top: -75px;
+    }
+    .row .platforms{
+        position: relative;
+        margin-top: 50px;
+        padding-bottom: 10px ;
+    }
+    #latMenu{
+        background-color: var(--backgroundHamb);
+    }
+    
+    h4{
+        position: absolute;
+        padding-left: 60px;
+        padding-bottom: 20px;
+    }
+    
+    .user{
+        position: absolute;
+        padding-top: 40px;
+        padding-left: 60px;
+    }
+    
+    #cross{
+        color: var(--canvassCross);
+    }
+    
+    #latMenu ul{
+        list-style: none;
+        padding-left: 0;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 28px;
+    }
+    
+    #latMenu ul li{
+        padding-top: 15px;
+    }
+    
+    .dropdown{
+        margin-top: -30px;
+    }
+    
+    .switchs{
+        padding-top: 425px;
+        font-size: 15px;
+        
+    }
+    
+    #lOut{
+        color: var(--fontColor);
+        text-decoration: none;
+        padding-left: 0;
+        line-height: 20px;
+        font-size: 15px;   
+    }
+    
+    #switchHamb{
+        cursor: pointer;
+        width: 44px;
+        height: 22px;
+        position: absolute;
+        margin-left: 20px;
+    }
+    
+    .form-switch{
+        padding: 0;
+    }
+    
+    .form-switch .form-check-input{
+        position: absolute;
+        margin-top: 5px;
+        margin-left: 8px;
+        font-size: 10px;
+        background-color: #E1E1E4;
+        border-color: transparent;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        
+    }
+    
+    .state::before{
+        content: 'OFF';
+        position: absolute;
+        color: var(--dataOfGame);
+        margin-top: -18px;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    
+    input:checked + .state::before{  
+        content:'ON';
+        position: absolute;
+        margin-left: 103px;
+        font-size: 10px;
+        color:var(--iconsColor);
+    }
+    
+    .form-switch .form-check-input:checked {
+        background-color: var(--switchColor);
+    }
+    
+}
+
+
+
+
