@@ -19,3 +19,11 @@ NICE TO HAVE:
 - Light mode Mobile version.
 - Responsive for Mobile.
 - Search by console.
+
+
+Email and password to log in when the JSON Server it is up.
+
+{
+  "email": "olivier@mail.com",
+  "password": "bestPassw0rd"
+}
