@@ -40,7 +40,7 @@ submitLog.addEventListener('click', async e => {
         }
         
         localStorage.setItem("email", email.value)
-        window.location.replace("GameFinder/GameFinder.html")
+        window.location.replace("../GameFinder/GameFinder.html")
     } catch (e) {
         document.querySelector('span').textContent = "Please, check the data"
     }
