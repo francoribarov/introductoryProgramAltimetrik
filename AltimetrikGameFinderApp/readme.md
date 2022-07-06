@@ -27,3 +27,4 @@ Email and password to log in when the JSON Server it is up.
   "email": "olivier@mail.com",
   "password": "bestPassw0rd"
 }
+
