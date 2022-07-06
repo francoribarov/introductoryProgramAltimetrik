@@ -1,4 +1,3 @@
-// key 6f2b18a8c113418299c8b7a82d268af9
 let gamesCards = ''
 let id = 1
 let pageCounter = 1
@@ -19,6 +18,7 @@ let respSearch
 let savedYet = false
 let stopLoading = false
 let global 
+let consoleId
 
 const noBackground = "img/noBackground.svg"
 
@@ -29,19 +29,16 @@ const getGames = async() => {
             if (gameSearch == "Playstation" || gameSearch === "PC " || gameSearch === "Xbox" || gameSearch === "Nintendo"){ // it is a console
                 switch (gameSearch) {
                     case ("Playstation"):
-                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=2&page=${pageCounterForSearches}`)
-                      
+                        consoleId = 2
                     case ("PC "):
-                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=1&page=${pageCounterForSearches}`)
-                        
+                        consoleId = 1   
                     case ("Xbox"):
-                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=3&page=${pageCounterForSearches}`)
-                    
+                        consoleId = 3
                     case ("Nintendo"):
-                        respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=7&page=${pageCounterForSearches}`)
-                        break;
-                
+                        consoleId = 7
+                        break;         
                 }
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&parent_platforms=${consoleId}&page=${pageCounterForSearches}`)
             } else {
                 respSearch = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&search=${gameSearch}&page=${pageCounterForSearches}`)
             }
@@ -291,7 +288,7 @@ searchTermElem.addEventListener('input', function (event) {
         } else {
             document.getElementById('searchResults').innerHTML = ''
             resultsToShow = `
-                <li> The game that you are looking for it does not exist in our database.</li>
+                <li> The game that you are looking for does not exist in our database.</li>
             ` 
             document.getElementById('searchResults').innerHTML =  resultsToShow
             resultsToShow = '' // To make it empty again
