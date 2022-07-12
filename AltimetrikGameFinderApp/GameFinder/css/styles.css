@@ -485,6 +485,26 @@ a:link{
     
 }
 
+.modal-dialog{
+    width: 1076px;
+    height: auto;
+    font-family: 'Exo';
+    
+}
 
+.modal-content{
+    background-color: var(--backgroundCard);
+}
 
+.modal .btn {
+    border-color: var(--addToWish);
+}
+
+.wishlistButton{
+    background-color: var(--addToWish);
+}
+
+.purchaseButton{
+    color: var(--addToWish);
+}
 

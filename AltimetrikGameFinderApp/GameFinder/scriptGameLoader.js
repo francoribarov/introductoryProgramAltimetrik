@@ -44,7 +44,7 @@ const getGames = async() => {
             }
            
             searchResponse = await respSearch.json()
-            if (respSearch.status == 200){
+            if (respSearch.ok == true){
                 if (searchResponse.next == null) stopLoading = true;
                 getData(searchResponse.results)
                 pageCounterForSearches++                
@@ -52,7 +52,7 @@ const getGames = async() => {
         } else {
             resp = await fetch(`https://api.rawg.io/api/games?key=6f2b18a8c113418299c8b7a82d268af9&page=${pageCounter}`)
             response = await resp.json()
-            if (resp.status == 200) getData(response.results)
+            if (resp.ok == true) getData(response.results)
             else throw e
              
     }} catch (e) {
@@ -77,6 +77,7 @@ let observer = new IntersectionObserver((gameObserved) => {
 }) 
 /* end Observer */
 
+let cardsx
 
 /* begin getData -> obtains all the data of the games */ 
 const getData = response =>{
@@ -85,7 +86,7 @@ const getData = response =>{
        gamesCards += `
         
         <div class = "col-lg-4 d-block-lg col-md-6 py-2">
-            <div class="card">
+            <div id= "card_${id}" class="card tarjetas">
                 <input type ="image" class="like" value="false" src ="img/Heart.png">
                 <img class="card-img" id = "gameFrontPage" src="${game.background_image || noBackground}" alt="gameFrontPage">
                 <div class="card-body overflow-auto">
@@ -144,13 +145,15 @@ const getData = response =>{
                 Queue[0] = gamesCards 
             }
         }
-    });
 
+    });
+    
     /* Last search funcionality*/
     /* end last search func */
     if (response.length > 0 ) {
 
         document.getElementById('cards').innerHTML = gamesCards
+        carga()
         if ((lastGame) && (id != 746582)){ // If id = 746582 it is the last game
             observer.unobserve(lastGame)
         }
@@ -377,4 +380,16 @@ searchMobile.addEventListener('click', () => {
 
 /* end search mobile */
 
+
 getGames()
+let cardName
+function carga(){
+    cardsx = document.querySelectorAll('.tarjetas')
+    for (const card of cardsx){
+        cardName = card.children[2].children[0].children[0].children[0].children[0].innerText 
+        card.addEventListener('click', function(){
+            console.log(card.children[2].children[0].children[0].children[0].children[0].innerText)
+        })
+    }
+}
+
