@@ -25,6 +25,13 @@ let completeGameData = []
 
 const noBackground = "img/noBackground.svg"
 
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.card')){ 
+        let cardToShow = e.target.innerHTML
+        DisplayModal(cardToShow)
+    }  
+})
+
 /* begin getGames -> calls the api */
 const getGames = async() => {
     try {
@@ -162,12 +169,7 @@ const getData = response =>{
 
         document.getElementById('cards').innerHTML = gamesCards
         
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.card')){ // pending to check if it is text or not
-                let cardToShow = e.target.innerHTML
-                DisplayModal(cardToShow)
-            }  
-    })
+        
         if ((lastGame) && (id != 746582)){ // If id = 746582 it is the last game
             observer.unobserve(lastGame)
         }
@@ -478,22 +480,25 @@ function getGameData(gameData) {
     }
 }
 
-
+const ModalShown = document.getElementById('ModalInjection')
 /* begin modal fuctionality*/
-
+let ModalToShow = null
 function DisplayModal(CardTitle){
-    let ModalToShow = ''
+    let find = false
     let movieOfGame 
-    console.log(listOfGames)
+    if (ModalToShow !== null){
+        ModalToShow.innerHTML = ''
+        ModalShown.innerHTML = ''
+    }
+    ModalToShow = document.createElement('div')
     let i = 0
-    while (i < listOfGames.length){
+    while (!find){
         if (listOfGames[i].name === CardTitle){
-        
            if (listOfGames[i].results[0] != null)
                 movieOfGame = listOfGames[i].results[0].data['480']
             else
                 movieOfGame = noBackground 
-            ModalToShow  +=
+            ModalToShow.innerHTML =
             `
                 <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -585,13 +590,14 @@ function DisplayModal(CardTitle){
                     </div>
                 </div>
                 `
+                find = true 
         }
         i++
     }
-    document.getElementById('modalX').innerHTML = ModalToShow
-    var myModal = new bootstrap.Modal(document.getElementById('Modal'))
+    ModalShown.append(ModalToShow)
+    const myModal = new bootstrap.Modal(document.getElementById('Modal'))
     myModal.show()
-    
+    find = false
 }
    
 
