@@ -355,19 +355,20 @@ a:link{
 }
 
 .card-text{
-    color : var(--dataOfGame);
+    color : var(--fontColor);
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     overflow: auto;
 }
 
-#genres, #date{
+.genres, .date, .publisher, .web , .dev , .age, .platform{
     line-height: 18px;
-    color: var(--fontColor);
+    color: var(--dataOfGame);
+   
 }
 
-#platforms{
+.platforms{
     align-content: flex-end;
 }
 
@@ -485,19 +486,32 @@ a:link{
     
 }
 
-.modal-dialog{
+.modal-body{
     width: 1076px;
-    height: auto;
+    height: 793px;
     font-family: 'Exo';
-    
 }
 
 .modal-content{
     background-color: var(--backgroundCard);
+    z-index: 2;
+    width: 1076px;
+    height: 793px;
+    border-radius: 24px;
+}
+
+.modalBackground{
+    width: 1076px;
+    height: 793px;
+    border-radius: 24px;
+    z-index: -1;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 84.4%), ;
 }
 
 .modal .btn {
     border-color: var(--addToWish);
+    pointer-events: none;
 }
 
 .wishlistButton{
@@ -508,3 +522,62 @@ a:link{
     color: var(--addToWish);
 }
 
+.wishlistButton, .purchaseButton{
+    width: 228px; 
+    height: 47px;
+}
+.btn-close{
+    z-index: 1;
+}
+
+.modal-body a {
+    text-decoration: underline var(--white);
+    color: var(--fontColor);
+}
+
+.modal-body h3 {
+    font-size: 48px;
+    color: var(--fontColor);
+    line-height: 64px;
+    font-weight: 800;
+}
+
+.gameTrailer{
+    width: 392px;
+    height:217px ;
+
+}
+
+.gameDescription{
+    width: 602px;
+    height: 122px;
+    overflow: auto;
+}
+
+.scshot{
+    padding-top: 16px ;
+    width: 184px ;
+    height: 104px;
+}
+
+.container-fluid .generalContainer{
+    padding-top: 15px;
+    padding-left: 0;
+}
+
+.row .infoAboutTheGame{
+    padding-top: 16px;
+}
+
+.bigContainer{
+    padding-top: 80px;
+}
+
+.iconsModal{
+    margin-left: 20px;
+    
+}
+
+.col-12 .iconsM{
+    margin-left: 0px;
+}
