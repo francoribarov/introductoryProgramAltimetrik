@@ -1,7 +1,7 @@
 :root{
     --backgroundColor: #141414;
     --colorLinks: #5FE19B;
-    --numberColor:#36B972; /* Also used for purchase color*/
+    --numberColor:#36B972; 
     --addToWish: #4CC986;
     --backgroundCard: #303030; 
     --backgroundHead: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
@@ -19,6 +19,7 @@
     --white:#FFFFFF;
     --hasSearch:#939393;
     --backgroundForm:#E1E1E4;
+    --backgroundGradient: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 84.4%);
 }
 
 *{
@@ -49,6 +50,7 @@ body, html{
     --frontViewDisabledColor: #C4C4C4;
     --backgroundHamb: #FFFFFF;
     --canvassCross: #515151;
+    --backgroundGradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F0F0F0 63.23%, #F0F0F0 75.85%);
 }
 
 #headerProperties{
@@ -126,8 +128,7 @@ body, html{
 
 .form-control{
     width: 362px;
-    height: 47px;
-    
+    height: 47px;    
 }
 
 .profile-picture{
@@ -307,7 +308,7 @@ a:link{
     scrollbar-width: none;  /* Firefox */
 }
 
-#content::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none; /*Others browsers*/
 }
 
@@ -362,17 +363,31 @@ a:link{
     overflow: auto;
 }
 
+.infoAboutTheGame{
+    color: var(--fontColor)
+}
+
 .genres, .date, .publisher, .web , .dev , .age, .platform{
     line-height: 18px;
     color: var(--dataOfGame);
-   
+    margin-bottom: 0;
 }
+
+.InfoContainer .platform{
+    max-height: 20px;
+
+}
+
+.underline{
+    text-decoration: underline solid var(--fontColor);
+}
+
 
 .platforms{
     align-content: flex-end;
 }
 
-.icons{
+.icons .iconsModal{
     fill: var(--iconsColor);
 }
 
@@ -500,13 +515,20 @@ a:link{
     border-radius: 24px;
 }
 
+
 .modalBackground{
     width: 1076px;
     height: 793px;
     border-radius: 24px;
     z-index: -1;
     position: absolute;
-    background: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 84.4%), ;
+    
+}
+
+.gradient{
+    background: var(--backgroundGradient);
+    border-radius: 24px;
+    width: 1076px;
 }
 
 .modal .btn {
@@ -526,8 +548,12 @@ a:link{
     width: 228px; 
     height: 47px;
 }
+
 .btn-close{
-    z-index: 1;
+    padding-left: 2050px;
+    padding-top: 30px;
+    height: 28px;
+    width: 28px;
 }
 
 .modal-body a {
@@ -535,9 +561,9 @@ a:link{
     color: var(--fontColor);
 }
 
-.modal-body h3 {
+.modal-body .gameTitleModal {
     font-size: 48px;
-    color: var(--fontColor);
+    color: var(--white);
     line-height: 64px;
     font-weight: 800;
 }
@@ -552,6 +578,10 @@ a:link{
     width: 602px;
     height: 122px;
     overflow: auto;
+}
+
+::selection{
+    background: var(--colorLinks);
 }
 
 .scshot{
@@ -578,6 +608,18 @@ a:link{
     
 }
 
-.col-12 .iconsM{
-    margin-left: 0px;
+.iconsM{
+    padding-right: 150px;    
 }
+
+.overlay{
+   opacity: 0.4;
+}
+
+
+
+
+
+
+
+
