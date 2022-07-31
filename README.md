@@ -40,11 +40,8 @@ To search games in an effectively way I used the debounce function.
 
 One of the most challenging things for me was making the search bar, so in the future I hope to improve the code and add some features to the search bar.
 
-Furthermore, in the next weeks I am willing to add these features:
-
-- Modal for the games
-- 1 column view of the games
-- Tablet version
+Actually I have not any new features to implement, so I am working on make my code cleaner
+and improve the user experience
 
 ### How to run the Project.
 
