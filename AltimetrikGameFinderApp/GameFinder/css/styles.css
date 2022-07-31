@@ -1,7 +1,7 @@
 :root{
     --backgroundColor: #141414;
     --colorLinks: #5FE19B;
-    --numberColor:#36B972; /* Also used for purchase color*/
+    --numberColor:#36B972; 
     --addToWish: #4CC986;
     --backgroundCard: #303030; 
     --backgroundHead: linear-gradient(180deg, #5FE19B 0%, #36B972 50%, #0EA152 100%);
@@ -19,6 +19,8 @@
     --white:#FFFFFF;
     --hasSearch:#939393;
     --backgroundForm:#E1E1E4;
+    --backgroundGradient: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 55%);
+    --pillsColor: #515151;
 }
 
 *{
@@ -49,6 +51,7 @@ body, html{
     --frontViewDisabledColor: #C4C4C4;
     --backgroundHamb: #FFFFFF;
     --canvassCross: #515151;
+    --backgroundGradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F0F0F0 63.23%, #F0F0F0 75.85%);
 }
 
 #headerProperties{
@@ -76,6 +79,7 @@ body, html{
     width: 362px;
     max-height: 150px;
     overflow: auto;
+    margin-left: -190px ;
 }
   
 #searchResults ul {
@@ -103,14 +107,17 @@ body, html{
 .show #searchResults ul li {
     opacity: 1;
     display: block;
+      
 }
  
 .show #searchResults {
-    padding-top: 10px;  
+    padding-top: 10px;
+    
 }
 
 .has-search .form-control {
     padding-left:38px;
+    margin-left: -190px;
 }
 
 .has-search .form-control-feedback {
@@ -122,12 +129,12 @@ body, html{
     pointer-events: none;
     color: var(--hasSearch);
     z-index: 3;
+    margin-left: -190px;
 }
 
 .form-control{
     width: 362px;
-    height: 47px;
-    
+    height: 47px;    
 }
 
 .profile-picture{
@@ -307,7 +314,7 @@ a:link{
     scrollbar-width: none;  /* Firefox */
 }
 
-#content::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none; /*Others browsers*/
 }
 
@@ -330,9 +337,12 @@ a:link{
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
+    cursor: pointer;
+    max-height: 30px;
+    overflow: auto;
 }
 
-#gamePosition{
+.gamePosition{
     color : var(--numberColor);
     font-weight: 700;
     font-size: 18px ;
@@ -346,7 +356,7 @@ a:link{
     background-color: var(--backgroundCard);
     border-radius: 12px;  
     -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    scrollbar-width: none;
 }
 
 
@@ -355,40 +365,78 @@ a:link{
 }
 
 .card-text{
-    color : var(--dataOfGame);
+    color : var(--fontColor);
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     overflow: auto;
 }
 
-#genres, #date{
-    line-height: 18px;
-    color: var(--fontColor);
+.infoAboutTheGame{
+    color: var(--fontColor)
 }
 
-#platforms{
+.genres, .date, .publisher, .web , .dev , .age, .platform{
+    line-height: 18px;
+    color: var(--dataOfGame);
+    margin-bottom: 0;
+}
+
+#listOfPublishers{ 
+    overflow: auto;
+    max-height: 50px;
+}
+
+.InfoContainer .platform{
+    max-height: 20px;
+
+}
+
+.underline{
+    text-decoration: underline solid var(--fontColor);
+}
+
+
+.platforms{
     align-content: flex-end;
 }
 
 .icons{
     fill: var(--iconsColor);
+    filter: drop-shadow(0, 0, 8px, rgba(0, 0, 0, 0.25));
 }
 
 @media screen and (max-width: 600px) {
     .card{
         width: 288px;
         height: 332px;
+        overflow: auto;
     }
+
+    .card-title{
+        overflow: auto;
+        max-height: 25px;
+    }
+    .col-lg-4.ps-0.col-6{
+        position: absolute;
+        padding-top: 50px;  
+    }
+
+    .platforms{
+        padding-left: 15px;
+    }
+
     #genresDiv{
        position: relative;
        margin-top: -75px;
+       overflow: auto;
     }
-    .row .platforms{
-        position: relative;
-        margin-top: 50px;
-        padding-bottom: 10px ;
+        
+    span{
+        position: absolute;
+        padding-left: 95px;
     }
+
     #latMenu{
         background-color: var(--backgroundHamb);
     }
@@ -483,21 +531,126 @@ a:link{
         background-color: var(--switchColor);
     }
     
+    .modal-content{
+        width: 320px;
+        height: 800px;
+        font-family: 'Exo';
+        
+    }
+
+    .modal-body{
+        padding-left: 0 !important;
+    }
+    .gameTitleModal{
+        font-size: 28px !important;
+    }
+    
+    .gameDescription{
+        width: 250px !important;
+        
+    }
+
+    .modal-body{
+        height: 1450px !important;
+        width: 181 !important;
+    }
+
+    .pills{
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--pillsColor);
+        height: 28px;
+        border-radius: 15px;
+        max-width: 120px;
+        background-color: var(--white);
+        position: relative;
+        margin-left:13px ;
+        text-align: center;
+    }
+
+    #extraInfo{
+        position: absolute;
+        padding-top: 300px;
+    }
+
+    #sc{
+        position: absolute;
+        padding-top: 10px;
+        padding-left: -15px;
+    }
+
+    #sc .col-6{
+        width: 153px;
+        height: 87px;
+        padding-left: 0;
+    }
+
+    .col-5.movies{
+        position: absolute;
+        padding-left: -10px;
+        padding-top: 700px;
+    }
+
+    .gameTrailer{
+        padding-left: 0 !important;
+    }
+
+    #mainM{
+        padding-left: 0;
+    }
+
+    .interactiveIcons{
+        position: absolute;
+        margin-left: -270px;
+        padding-top: 250px;
+        padding-left: -150px;
+    }
+
+    .purchaseButton{
+        margin-top: 20px;
+    }
+
+    .platform{
+        overflow: auto;
+        max-height: 50px;
+    }
+
+
 }
 
-.modal-dialog{
+.modal-body{
     width: 1076px;
-    height: auto;
+    height: 793px;
     font-family: 'Exo';
-    
 }
 
 .modal-content{
     background-color: var(--backgroundCard);
+    z-index: 2;
+    width: 1076px;
+    height: 793px;
+    border-radius: 24px;
+}
+
+
+.modalBackground{
+    width: 1076px;
+    height: 793px;
+    border-radius: 24px;
+    z-index: -1;
+    position: absolute;
+    
+}
+
+.gradient{
+    background: var(--backgroundGradient);
+    border-radius: 24px;
+    width: 1076px;
 }
 
 .modal .btn {
     border-color: var(--addToWish);
+    pointer-events: none;
 }
 
 .wishlistButton{
@@ -508,3 +661,190 @@ a:link{
     color: var(--addToWish);
 }
 
+.wishlistButton, .purchaseButton{
+    width: 228px; 
+    height: 47px;
+}
+
+.btn-close{
+    margin-left: 1030px;
+    padding-top: 30px;
+    height: 28px !important;
+    width: 28px;
+}
+
+.modal-body a {
+    text-decoration: underline var(--white);
+    color: var(--fontColor);
+    word-break: break-all;
+}
+
+.modal-body .gameTitleModal {
+    font-size: 48px;
+    color: var(--white);
+    line-height: 64px;
+    font-weight: 800;
+}
+
+.gameTrailer{
+    width: 392px;
+    height:217px ;
+
+}
+
+.gameDescription{
+    width: 602px;
+    height: 122px;
+    overflow: auto;
+}
+
+::selection{
+    background: var(--colorLinks);
+}
+
+.scshot{
+    padding-top: 16px ;
+    width: 184px ;
+    height: 104px;
+}
+
+.container-fluid .generalContainer{
+    padding-top: 15px;
+    padding-left: 0;
+}
+
+.row .infoAboutTheGame{
+    padding-top: 16px;
+}
+
+.bigContainer{
+    padding-top: 80px;
+}
+
+.iconsModal{
+    margin-left: 20px;
+    
+}
+
+.iconsM{
+    padding-right: 150px;    
+}
+
+.overlay{
+   opacity: 0.4;
+}
+
+
+.columnMode{
+    width: 697px;
+    height: 538px;
+    margin-left: 250px;
+}
+
+.columnMode #gameFrontPage{
+    width: 697px;
+    height: 415px;
+}
+
+.dateColumn{ 
+    position: absolute;
+    padding-left: 200px;
+} 
+
+.iconsColumn{
+    position: absolute;
+    padding-left: 365px;
+} 
+
+.description{
+    display: none;
+}
+
+.descriptionView{
+    display: block;
+    overflow: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.interactiveIcons{
+    position: absolute;
+    padding-left: 270px;
+    margin-top: -45px;
+}
+
+.pills{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--pillsColor);
+    height: 28px;
+    border-radius: 15px;
+    max-width: 120px;
+    background-color: var(--white);
+    position: relative;
+    margin-left:13px ;
+    text-align: center;
+}
+
+.pills p{
+    color: var(--colorLinks);
+    margin-right: 10px;
+}
+
+.row .pillsModal{
+    margin-left: 2px;
+    padding-bottom: 15px;
+}
+
+#modalId{
+    margin-right: 20px;
+}
+
+.columnMode .card-text.genres{
+    position: absolute;
+    padding-left: 200px;
+    margin-top: -22px;
+    overflow: auto;
+}
+
+#snackbar{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--backgroundCard);
+    color: var(--colorLinks);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+      
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, fadeout 0.5s 5.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }

@@ -128,7 +128,7 @@ input[type="checkbox"]:checked{
 
 /* Log in */
 
-#enter{
+#loginButton{
     margin-top: 24px;
     position: relative;
     width: 362px ;

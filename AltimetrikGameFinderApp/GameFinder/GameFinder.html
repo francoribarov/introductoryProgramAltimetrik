@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
 </head>
-<body>
     <header>
         <div class="container-fluid ps-0 ">
            
@@ -50,14 +49,13 @@
                         <div class="form-group has-search">
                             <i class="bi-search form-control-feedback"></i>
                             <input id="searchBar" type="text" class="form-control" placeholder="Search games...">
-                            <div id="searchResults">
-                                
+                            <div id="searchResults">     
                             </div>
                         </div>
 
                     </div>
                     <div id="log-out" class="col-2 pe-5 d-lg-block d-none">
-                        <button id="profile" type="button" class="btn btn-link">Log out</button>
+                        <button id="logOutButton" type="button" class="btn btn-link">Log out</button>
                         <img class="profile-picture" src="img/Custom.jpg" alt="profile-picture">
                     </div>
 
@@ -70,6 +68,7 @@
         </div>
         
     </header>
+    <div id="over">
     <div class="container-fluid ps-0">
         <!-- Begin container for the title, subtitle and the switch options-->
         <div class="container-fluid ps-4">
@@ -155,10 +154,11 @@
                             <p id="home" class="">Home</p>
                         </a>
                         <a href="#" class = "pt-0">
-                            <p id="reviews" class="">Reviews</p>
+                            <p id="reviews">Reviews</p>
                         </a>
                         <a href="#" class = "pt-0">
-                            <p id="new-rel" class="">New realeases</p>
+                            <p id="new-rel">New realeases</p>
+                            
                         </a>
 
                         <div class="nav-pills align-items-start pt-3" id="menu">
@@ -213,90 +213,33 @@
                                         Best of the year
                                     </p> 
                                 </a>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                                    Launch demo modal
-                                </button>
                             </div>  
 
                         </div>
                     </div>  
                 </div>
-                
-                
-                
-                <!-- Modal -->
-                <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="container-fluid">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="ModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                    <div class="col-9">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa nisi repellendus ullam accusantium illo facere quas reiciendis vero voluptatibus explicabo vel omnis temporibus iure odio et, numquam consectetur molestias.</p>
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <button type="button" class="btn btn-primary wishlistButton">Add to wishlist</button>
-                                                        <p>Platforms</p>
-                                                        <p>Platforms</p>
-
-                                                        <p>Release date</p>
-                                                        <p>date</p>
-
-                                                        <p>Publisher</p>
-                                                        <p>Publisher</p>
-
-                                                        <p>web</p>
-                                                        <p>web</p>
-
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <button type="button" class="btn btn-outline-primary purchaseButton">Purchase</button>
-                                                        <p>Genre</p>
-                                                        <p>ActionRPG</p>
-
-                                                        <p>Developer</p>
-                                                        <p>Experiment</p>
-
-                                                        <p>Age rating</p>
-                                                        <p>Not rated</p>
-
-                                                    </div>
-                                                    <div class="col-3">
-                                                    </div>
-                                                </div>
-                                            </div>  
-                                    </div>
-                                    <div class="col-3">
-                                       
-                                            <p> asdasd</p>
-                                        
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                
-                <!-- begin Injection cards -->
+                 
+             <!-- begin Injection cards -->
                 <div id ="content" class="col-lg-10 overflow-scroll ps-0 col-12 ">
+                    <div id="ModalInjection">
+                    </div>
                     <div id ="cards" class="row gx-1 py-4">
+                        
                     </div> 
+                </div>
+                    <div>
                 </div>
                 <!-- end Injection cards -->
             </div>
         </div> 
-        <!-- End container for the sidebar and the cards-->                     
+        <!-- End container for the sidebar and the cards-->
+        <div id ="snackbar"> 
+
+        </div>                     
     </div>
         
-    <script src="scriptGameLoader.js"></script>
+    <script  type="module" src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
+</div>
 </html>
