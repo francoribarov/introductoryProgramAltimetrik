@@ -1,6 +1,6 @@
 const email = document.getElementById('email')
 const password = document.getElementById('password')
-const submitLog= document.getElementById('enter')
+const submitLog= document.getElementById('loginButton')
 const togglePassword = document.getElementById('showPassword')
 let resp
 let response
@@ -34,8 +34,9 @@ submitLog.addEventListener('click', async e => {
                 password: password.value
             })
         },
-        resp = await fetch("http://localhost:3000/login",dataToValue)
+        resp = await fetch("http://localhost:3000/login", dataToValue)
         if (!resp.ok){
+
             throw e
         }
         

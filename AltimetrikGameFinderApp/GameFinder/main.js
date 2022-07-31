@@ -1,5 +1,5 @@
 import {getGameData , getGames , search} from './fetchModule.js'
-import {DisplayModal, DataRender} from './renderModule.js'
+import {DisplayModal, DataRender, getData} from './renderModule.js'
 
 let overlay = document.getElementById('over')
 let icon = document.getElementById('icon')
@@ -26,6 +26,7 @@ searchTermElem.addEventListener('input', function (event) {
     icon.classList.add('overlay')
     user.classList.add('overlay')
 })
+
 
 const lastSearches = document.getElementById('LastSearchButton')
 let gamesSearched = ''
@@ -56,6 +57,19 @@ switchModesMobile.addEventListener('click', () => {
     document.body.classList.toggle("lightmode")
 })
 
+const logOutButton = document.getElementById('logOutButton')
+logOutButton.addEventListener('click', (e) => {
+    localStorage.removeItem("email")
+    localStorage.clear()
+    window.location.replace("../Login/login.html")
+})
+
+const authentication = () => {
+    if (localStorage.length == 0)
+    window.location.replace("../Login/login.html")
+}
+
+authentication() 
 getGames()
 
 

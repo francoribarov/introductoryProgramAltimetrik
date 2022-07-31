@@ -9,18 +9,23 @@ let searchResponse = []
 let resultsToShow = ''
 let resultsCounter 
 let searchResultHtml
+let resultsLength = 0
+let descriptionView = false
 
 export let  ObjectToExport = {
     pageCounter,
     stopLoading,
     pageCounterForSearches,
     searchResponse,
+    resultsLength,
+    descriptionView
 }
 
 export const getGames = async() => {
     let resp 
     let consoleId
     let respSearch
+   
     try {
         if (DataRender.Search){
             if (gameSearch == "Playstation" || gameSearch === "PC " || gameSearch === "Xbox" || gameSearch === "Nintendo"){ // it is a console
@@ -35,23 +40,24 @@ export const getGames = async() => {
                         consoleId = 7
                         break;         
                 }
-                respSearch = await fetch(`https://api.rawg.io/api/games?key=7782fff30be64f5c95686cfae511e0d9&parent_platforms=${consoleId}&page=${pageCounterForSearches}`)
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&parent_platforms=${consoleId}&page=${pageCounterForSearches}`)
             } else {
-                respSearch = await fetch(`https://api.rawg.io/api/games?key=7782fff30be64f5c95686cfae511e0d9&search=${gameSearch}&page=${pageCounterForSearches}`)
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&search=${gameSearch}&page=${pageCounterForSearches}`)
             }
             searchResponse = await respSearch.json()
             if (respSearch.ok == true){
                 if (searchResponse.next == null)
-                    ObjectToExport.stopLoading = true
-               
+                ObjectToExport.stopLoading = true
+                ObjectToExport.resultsLength = searchResponse.results.length
                 getData(searchResponse.results)
                 getGameData(searchResponse.results)
                 pageCounterForSearches++                
             }  else throw e       
         } else {
-            resp = await fetch(`https://api.rawg.io/api/games?key=7782fff30be64f5c95686cfae511e0d9&page=${ObjectToExport.pageCounter}`)
+            resp = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&page=${ObjectToExport.pageCounter}`)
             response = await resp.json()
             if (resp.ok == true){
+                ObjectToExport.resultsLength = searchResponse.length
                 getData(response.results)
                 getGameData(response.results)
             }
@@ -74,28 +80,47 @@ const debounce = (fn, delay=500) => {
     }
 }
 
-export function getGameData(gameData) {
+export function getGameData(gameData){
     for (let index = 0; index < gameData.length; index++) {
       const gameId = gameData[index].id 
       const gameScreenshots = gameData[index].short_screenshots 
-      fetch(`https://api.rawg.io/api/games/${gameId}?key=7782fff30be64f5c95686cfae511e0d9&`)
+      fetch(`https://api.rawg.io/api/games/${gameId}?key=681f753709be4ab8b42a3ccb6313766b&`)
         .then((res) => res.json())
         .then((data) => {
-            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=7782fff30be64f5c95686cfae511e0d9&`)
+            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=681f753709be4ab8b42a3ccb6313766b&`)
                 .then((resMovie) => resMovie.json())
                 .then((dataMovie) => {
                     Object.assign(data, gameScreenshots)
                     Object.assign(data, dataMovie)
                     listOfGames.push(data)
+                    loadDescription(data)
             })
         })
     }
+    
+}
+ObjectToExport.descriptionView = false
+function loadDescription(data){
+    let targetCard = document.getElementById(`${data.id}`)
+    let descriptionClass = () => {
+        if (ObjectToExport.descriptionView)
+            return 'descriptionView'
+        else 
+           return 'description' 
+    }
+    targetCard.innerHTML += 
+    `
+        <div class = "${descriptionClass()}">
+            ${data.description}
+        </div> 
+    `
+    
 }
 
 const showResults = searchTerm => {
     document.getElementById('searchResults').innerHTML = ''
     resultsCounter = searchResponse.results.length
-    if (resultsCounter >= 1){
+    if (resultsCounter > 0){
         for (let i = 0; i < resultsCounter ; i++) {      
             searchResultHtml += `                
                     <li> ${searchTerm.results[i].name} </li>
@@ -115,10 +140,14 @@ const showResults = searchTerm => {
 
 async function lookForResults(){
     DataRender.id = 1
-    DataRender.gamesCards = ''
+    document.getElementById('cards').innerHTML = '' 
     DataRender.Search = true // boolean variable to dont make more fetch
     DataRender.savedYet = true // boolean variable just to save the first game
     stopLoading = false
+    document.getElementById('content').scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+    });
     await getGames()
     showResults(searchResponse) 
 }

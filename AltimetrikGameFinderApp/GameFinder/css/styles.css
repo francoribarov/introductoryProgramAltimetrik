@@ -19,7 +19,8 @@
     --white:#FFFFFF;
     --hasSearch:#939393;
     --backgroundForm:#E1E1E4;
-    --backgroundGradient: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 84.4%);
+    --backgroundGradient: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 55%);
+    --pillsColor: #515151;
 }
 
 *{
@@ -331,9 +332,10 @@ a:link{
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
+    cursor: pointer;
 }
 
-#gamePosition{
+.gamePosition{
     color : var(--numberColor);
     font-weight: 700;
     font-size: 18px ;
@@ -347,7 +349,7 @@ a:link{
     background-color: var(--backgroundCard);
     border-radius: 12px;  
     -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    scrollbar-width: none;
 }
 
 
@@ -387,24 +389,42 @@ a:link{
     align-content: flex-end;
 }
 
-.icons .iconsModal{
+.icons{
     fill: var(--iconsColor);
+    filter: drop-shadow(0, 0, 8px, rgba(0, 0, 0, 0.25));
 }
 
 @media screen and (max-width: 600px) {
     .card{
         width: 288px;
         height: 332px;
+        overflow: auto;
     }
+
+    .card-title{
+        overflow: auto;
+        max-height: 25px;
+    }
+    .col-lg-4.ps-0.col-6{
+        position: absolute;
+        padding-top: 50px;  
+    }
+
+    .platforms{
+        padding-left: 15px;
+    }
+
     #genresDiv{
        position: relative;
        margin-top: -75px;
+       overflow: auto;
     }
-    .row .platforms{
-        position: relative;
-        margin-top: 50px;
-        padding-bottom: 10px ;
+        
+    span{
+        position: absolute;
+        padding-left: 95px;
     }
+
     #latMenu{
         background-color: var(--backgroundHamb);
     }
@@ -499,6 +519,91 @@ a:link{
         background-color: var(--switchColor);
     }
     
+    .modal-content{
+        width: 320px;
+        height: 800px;
+        font-family: 'Exo';
+        
+    }
+
+    .modal-body{
+        padding-left: 0 !important;
+    }
+    .gameTitleModal{
+        font-size: 28px !important;
+    }
+    
+    .gameDescription{
+        width: 250px !important;
+        
+    }
+
+    .modal-body{
+        height: 1450px !important;
+        width: 181 !important;
+    }
+
+    .pills{
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--pillsColor);
+        height: 28px;
+        border-radius: 15px;
+        max-width: 120px;
+        background-color: var(--white);
+        position: relative;
+        margin-left:13px ;
+        text-align: center;
+    }
+
+    #extraInfo{
+        position: absolute;
+        padding-top: 300px;
+    }
+
+    #sc{
+        position: absolute;
+        padding-top: 10px;
+        padding-left: -15px;
+    }
+
+    #sc .col-6{
+        width: 153px;
+        height: 87px;
+        padding-left: 0;
+    }
+
+    .col-5.movies{
+        position: absolute;
+        padding-left: -10px;
+        padding-top: 700px;
+    }
+
+    .gameTrailer{
+        padding-left: 0 !important;
+    }
+
+    #mainM{
+        padding-left: 0;
+    }
+
+    .interactiveIcons{
+        position: absolute;
+        margin-left: -270px;
+        padding-top: 250px;
+        padding-left: -150px;
+    }
+
+    .purchaseButton{
+        margin-top: 20px;
+    }
+
+    .platform{
+        overflow: auto;
+        max-height: 50px;
+    }
+
+
 }
 
 .modal-body{
@@ -559,6 +664,7 @@ a:link{
 .modal-body a {
     text-decoration: underline var(--white);
     color: var(--fontColor);
+    word-break: break-all;
 }
 
 .modal-body .gameTitleModal {
@@ -617,9 +723,67 @@ a:link{
 }
 
 
+.columnMode{
+    width: 697px;
+    height: 538px;
+    margin-left: 250px;
+}
 
+.columnMode #gameFrontPage{
+    width: 697px;
+    height: 415px;
+}
 
+.dateColumn{ 
+    position: absolute;
+    padding-left: 200px;
+} 
 
+.iconsColumn{
+    position: absolute;
+    padding-left: 365px;
+} 
 
+.description{
+    display: none;
+}
 
+.descriptionView{
+    display: block;
+    overflow: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
+.interactiveIcons{
+    position: absolute;
+    padding-left: 270px;
+    margin-top: -45px;
+}
+
+.pills{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--pillsColor);
+    height: 28px;
+    border-radius: 15px;
+    max-width: 120px;
+    background-color: var(--white);
+    position: relative;
+    margin-left:13px ;
+    text-align: center;
+}
+
+.pills p{
+    color: var(--colorLinks);
+    margin-right: 10px;
+}
+
+.row .pillsModal{
+    margin-left: 2px;
+    padding-bottom: 15px;
+}
+
+#modalId{
+    margin-right: 20px;
+}
