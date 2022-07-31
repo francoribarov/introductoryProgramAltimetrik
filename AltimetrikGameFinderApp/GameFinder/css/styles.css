@@ -79,6 +79,7 @@ body, html{
     width: 362px;
     max-height: 150px;
     overflow: auto;
+    margin-left: -190px ;
 }
   
 #searchResults ul {
@@ -106,14 +107,17 @@ body, html{
 .show #searchResults ul li {
     opacity: 1;
     display: block;
+      
 }
  
 .show #searchResults {
-    padding-top: 10px;  
+    padding-top: 10px;
+    
 }
 
 .has-search .form-control {
     padding-left:38px;
+    margin-left: -190px;
 }
 
 .has-search .form-control-feedback {
@@ -125,6 +129,7 @@ body, html{
     pointer-events: none;
     color: var(--hasSearch);
     z-index: 3;
+    margin-left: -190px;
 }
 
 .form-control{
@@ -333,6 +338,8 @@ a:link{
     line-height: 32px;
     font-weight: 700;
     cursor: pointer;
+    max-height: 30px;
+    overflow: auto;
 }
 
 .gamePosition{
@@ -373,6 +380,11 @@ a:link{
     line-height: 18px;
     color: var(--dataOfGame);
     margin-bottom: 0;
+}
+
+#listOfPublishers{ 
+    overflow: auto;
+    max-height: 50px;
 }
 
 .InfoContainer .platform{
@@ -655,9 +667,9 @@ a:link{
 }
 
 .btn-close{
-    padding-left: 2050px;
+    margin-left: 1030px;
     padding-top: 30px;
-    height: 28px;
+    height: 28px !important;
     width: 28px;
 }
 
@@ -787,3 +799,52 @@ a:link{
 #modalId{
     margin-right: 20px;
 }
+
+.columnMode .card-text.genres{
+    position: absolute;
+    padding-left: 200px;
+    margin-top: -22px;
+    overflow: auto;
+}
+
+#snackbar{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--backgroundCard);
+    color: var(--colorLinks);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+      
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, fadeout 0.5s 5.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }

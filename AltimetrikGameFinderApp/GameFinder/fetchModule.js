@@ -1,4 +1,6 @@
 import {getData, DisplayModal, DataRender} from './renderModule.js'
+import {snackBar} from './main.js'
+
 export let listOfGames = []
 let pageCounterForSearches = 1
 let gameSearch
@@ -63,8 +65,8 @@ export const getGames = async() => {
             }
             else throw e       
     }} catch (e) {
-        console.log('Sorry, something went wrong.')
-        console.log(e)
+        e = 'Oops! Something happened, please, try again later' 
+        snackBar(e)
     }
 }
 
@@ -122,9 +124,8 @@ const showResults = searchTerm => {
     resultsCounter = searchResponse.results.length
     if (resultsCounter > 0){
         for (let i = 0; i < resultsCounter ; i++) {      
-            searchResultHtml += `                
-                    <li> ${searchTerm.results[i].name} </li>
-                ` 
+            searchResultHtml += 
+                `<li> ${searchTerm.results[i].name} </li>` 
         }          
         document.getElementById('searchResults').innerHTML = searchResultHtml
         searchResultHtml = '' // To make it empty again
@@ -164,6 +165,6 @@ export const search = debounce(async (searchTerm) => {
         pageCounterForSearches = 1 
         lookForResults()       
     } catch (error) {
-        console.log(error)
+        snackBar(error)
     }
 })

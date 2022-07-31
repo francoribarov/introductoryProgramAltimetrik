@@ -27,6 +27,11 @@ searchTermElem.addEventListener('input', function (event) {
     user.classList.add('overlay')
 })
 
+overlay.addEventListener('click',() => {
+    document.getElementById('searchResults').innerHTML = ''
+})
+
+
 
 const lastSearches = document.getElementById('LastSearchButton')
 let gamesSearched = ''
@@ -67,6 +72,13 @@ logOutButton.addEventListener('click', (e) => {
 const authentication = () => {
     if (localStorage.length == 0)
     window.location.replace("../Login/login.html")
+}
+
+export const snackBar = (error) => {
+    let snk = document.getElementById("snackbar");
+    snk.className = "show";
+    snk.innerText = error 
+    setTimeout(function(){ snk.className = snk.className.replace("show", ""); }, 6000);
 }
 
 authentication() 

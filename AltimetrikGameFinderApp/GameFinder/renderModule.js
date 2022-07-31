@@ -23,7 +23,7 @@ export let DataRender = {
 
 const viewsCards = document.getElementsByClassName('card')
 const toggleView = document.getElementById('1col-view')
-let flag = false
+
 toggleView.addEventListener('click', (e) => {
     ObjectToExport.descriptionView = true 
     for (let index = 0; index < viewsCards.length; index++) {
@@ -32,20 +32,20 @@ toggleView.addEventListener('click', (e) => {
         viewsCards[index].children[2].children[1].children[0].children[1].className = 'dateColumn' 
         viewsCards[index].children[2].children[1].children[0].children[1].children[0].className = 'iconsColumn'
         viewsCards[index].children[3].className = 'descriptionView'
-        if (!flag) viewsCards[index].children[2].children[1].children[0].children[1].append(viewsCards[index].children[2].children[1].children[1].children[0])
         cardsTo.style.setProperty("padding-left", "150px")
     }
-    flag = true 
+    
 })
 
 const toggleViewThree = document.getElementById('col-view')
 toggleViewThree.addEventListener('click', (e) => {
     for (let index = 0; index < viewsCards.length; index++) {
+        viewsCards[index].classList.remove("columnMode")
+        ObjectToExport.descriptionView = false
         viewsCards[index].parentNode.className = 'col-lg-4 d-block-lg col-md-6 py-2'
         viewsCards[index].children[2].children[1].children[0].children[1].className = 'col-lg-4 ps-0 col-6' 
         viewsCards[index].children[2].children[1].children[0].children[1].children[0].className = 'col-lg-12 col-4'
         viewsCards[index].children[3].className = 'description'
-        viewsCards[index].classList.remove("columnMode")
         cardsTo.style.setProperty("padding-left", "0px")              
     }
 })
@@ -59,6 +59,7 @@ let views = 4
 let platformSize
 let iconsCol
 let viewMode 
+let genresCol
 
 DataRender.gamesCards = cardsTo 
 export const getData = response =>{
@@ -99,7 +100,7 @@ export const getData = response =>{
                                 <p class="card-text date">Release date: <span> ${obtainDate(game.released)} </span> </p>  
                             </div>
                             <div class ="${platformSize}">
-                                <div id="platformIcons" class ="iconsCol">
+                                <div id="platformIcons" class ="${iconsCol}">
                                     <div class = "row platforms">
                                         ${getPlatforms(game.parent_platforms)}
                                     </div>
@@ -108,7 +109,7 @@ export const getData = response =>{
                         </div>
                        
                            <div class="row pt-1">
-                            <div class = "col-lg-12 col-4">
+                            <div class = "${genresCol}">
                                 <p class="card-text genres">Genres: <span>${obtainInfo(game.genres, false)} </span> </p> 
                             </div>
                             </div>
@@ -193,7 +194,7 @@ export const getData = response =>{
             observer.unobserve(lastGame)
         }
         let gamesDisplayed = document.querySelectorAll('.card')
-        if (gamesDisplayed.length > 18)
+        if (gamesDisplayed.length > 17)
             lastGame = gamesDisplayed[gamesDisplayed.length - 17]
         else 
             lastGame = gamesDisplayed[gamesDisplayed.length - 1]
@@ -296,7 +297,7 @@ export function DisplayModal(CardTitle){
                                                         <p class ="underline">${obtainInfo(listOfGames[i].genres, false)}</p>
 
                                                         <p class="dev">Developer</p>
-                                                        <p class ="underline" >${obtainInfo(listOfGames[i].developers, false)}</p>
+                                                        <p id="listOfPublishers" class ="underline" >${obtainInfo(listOfGames[i].developers, false)}</p>
 
                                                         <p class="age">Age rating</p>
                                                         <p>${obtainInfo(listOfGames[i].esrb_rating, false)}</p>                                        
