@@ -1,5 +1,5 @@
-import {getGameData , getGames , search} from './fetchModule.js'
-import {DisplayModal, DataRender, getData} from './renderModule.js'
+import {getGames , search} from './fetchModule.js'
+import {DisplayModal, DataRender} from './renderModule.js'
 
 let overlay = document.getElementById('over')
 let icon = document.getElementById('icon')
@@ -29,8 +29,8 @@ searchTermElem.addEventListener('input', function (event) {
 
 overlay.addEventListener('click',() => {
     document.getElementById('searchResults').innerHTML = ''
+    searchTermElem.value = ''
 })
-
 
 
 const lastSearches = document.getElementById('LastSearchButton')
@@ -62,23 +62,48 @@ switchModesMobile.addEventListener('click', () => {
     document.body.classList.toggle("lightmode")
 })
 
-const logOutButton = document.getElementById('logOutButton')
-logOutButton.addEventListener('click', (e) => {
-    localStorage.removeItem("email")
-    localStorage.clear()
-    window.location.replace("../Login/login.html")
-})
+const logOutButton = document.querySelectorAll('.btn.btn-link.logOutButton')
+for (let index = 0; index < logOutButton.length; index++){
+    logOutButton[index].addEventListener('click', function(){
+        localStorage.removeItem("email")
+        localStorage.removeItem("token")
+        localStorage.clear()
+        window.location.replace("../Login/login.html")
+    }) 
+    
+}
 
 const authentication = () => {
-    if (localStorage.length == 0)
-    window.location.replace("../Login/login.html")
+    const tok = localStorage.getItem("token")
+    !tok && window.location.replace("../Login/login.html")
 }
+
 
 export const snackBar = (error) => {
     let snk = document.getElementById("snackbar");
     snk.className = "show";
     snk.innerText = error 
     setTimeout(function(){ snk.className = snk.className.replace("show", ""); }, 6000);
+}
+
+
+const mobSearch = document.getElementById('mobSearch')
+const resMob = document.getElementById('searchResults')
+
+mobSearch.addEventListener('click', show)
+let showMob = false
+
+function show(){
+    if (!showMob){
+        showMob = true
+        searchTermElem.style.display = 'block'
+        resMob.style.display = 'block'
+    }   else {
+        showMob = false
+        searchTermElem.style.display = 'none'
+        resMob.style.display = 'none'
+    }
+        
 }
 
 authentication() 

@@ -21,6 +21,11 @@
     --backgroundForm:#E1E1E4;
     --backgroundGradient: linear-gradient(180deg, rgba(48, 48, 48, 0.0001) 0%, #303030 55%);
     --pillsColor: #515151;
+    --enabledBut: #FFFFFF;
+    --enabledSqu: #515151;
+    --disabledBut: #515151;
+    --disabledSqu: #303030;
+
 }
 
 *{
@@ -52,6 +57,10 @@ body, html{
     --backgroundHamb: #FFFFFF;
     --canvassCross: #515151;
     --backgroundGradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F0F0F0 63.23%, #F0F0F0 75.85%);
+    --enabledBut: #515151;
+    --enabledSqu: #939393;
+    --disabledBut: #C4C4C4;
+    --disabledSqu: #D8D8D8;
 }
 
 #headerProperties{
@@ -80,6 +89,7 @@ body, html{
     max-height: 150px;
     overflow: auto;
     margin-left: -190px ;
+    z-index: 1;
 }
   
 #searchResults ul {
@@ -152,7 +162,10 @@ body, html{
     align-items: end;
 }
 
-
+#mainC{
+    position: absolute;
+    margin-top: -25px;
+}
 
 #title{
     height: 65px;
@@ -165,6 +178,21 @@ body, html{
 .subTitle{
     font-size: 18px;
     line-height: 24px;
+}
+
+.col-md-10.col-12{
+    margin-bottom: -25px;
+}
+
+.btn.btn-link.logOutButton{
+    text-decoration: none;
+    color: var(--fontColor);
+    margin-left: -10px;
+    font-size: 15px;
+}
+
+.dropdown-item{
+    font-weight: 700;
 }
 
 @media screen and (max-width: 720px) {
@@ -180,21 +208,90 @@ body, html{
         padding-top: 58px;
         margin-bottom: 0;
     }
-    .gameFindeTitle{
-        width: 138px;
-        height: 18px;
-        margin-left: -20px;
-    }
     #headerProperties{
         height: 50px;
     }
     #icon{
         padding-left: 30px;
     }
+
+    .row.platforms{
+        position: absolute;
+    }
+
+    #searchBar{
+        position: fixed;
+        right: 320px;
+    }
+    
+    
+
 }
+
+@media screen and (max-width: 790px){
+
+    .offcanvas.offcanvas-start.d-md-block{
+        width: 100vh;
+    }
+    .row.platforms{
+        position: absolute;
+        right: 15px;
+    }
+    
+    #cards{
+        display: flex;
+    }
+
+    #views{
+        display: flex !important;
+        position: absolute;
+        right: 100px;
+        top: 150px; 
+    }
+
+    #searchBar{
+        position: fixed;
+        right: 200px;
+        top: 20px;
+    }
+
+    #searchResults{
+        position: fixed;
+        right: 200px;
+        top: 65px;
+    }
+
+    .bi-search.form-control-feedback{
+        position: absolute;
+        left: 380px;
+        top: 20px;
+    }
+
+    #views{
+        z-index: 10;
+    }
+
+    #cards{
+        padding-top: 20px;
+    }
+
+}
+
+.switchs{
+    padding-top: 605px;
+    font-size: 15px;
+}
+
+.button.d-m-block.d-xl-none{
+    background-color: var(--backgroundHead);
+    border: none; 
+    outline: none;
+}
+
 
 .mobileSearch{
     padding-right: 20px;
+    margin-top: -40px;
 }
 
 #flexSwitchCheckChecked{
@@ -213,7 +310,6 @@ body, html{
     background-color: var(--backgroundForm);
     border-color: transparent;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-    
 }
 
 .state::before{
@@ -238,28 +334,32 @@ input:checked + .state::before{
 }
 
 .form-check-label{
-    padding-top: 3px;
+    padding-top:3px;
+    font-size: 15px;
 }
 
 #views{
     padding-left: 80px;
 }
 
-.viewsColor{
-    fill: var(--backViewColor);
+
+#col1 rect{
+    fill: var(--enabledSqu);
 }
 
-.linesColor{
-    fill: var(--frontViewColor);
+#col1 path{
+    fill:var(--enabledBut) ;
 }
 
-.disabledViews{
-    fill: var(--backViewDisabledColor);
+#col3 path{
+    fill: var(--disabledBut);
 }
 
-.disabledlines{
-    fill: var(--frontViewDisabledColor);
+#col3 rect{
+    fill: var(--disabledSqu)
 }
+
+
 
 .Links{
     font-weight: 700;
@@ -277,8 +377,9 @@ input:checked + .state::before{
 }
 
 .emptySearch{
-    padding-left: 350px;
-    padding-top: 250px;
+    position: absolute;
+    left: 470px;
+    top: 250px;
     font-size: 30px;
 }
 
@@ -406,7 +507,38 @@ a:link{
     filter: drop-shadow(0, 0, 8px, rgba(0, 0, 0, 0.25));
 }
 
+.offcanvas .offcanvas-start .d-xl-none .d-block{
+    width: 1500px;
+}
+
+.col-2.align-items-end.pt-5.d-lg-block.d-none{
+    padding-left: 70px;
+}
+
 @media screen and (max-width: 600px) {
+    
+
+    #searchBar{
+        display: none;
+        width: 302px;
+        right: 10px;
+        top: 58px;
+        z-index: 1;
+    }
+
+    #searchResults{
+        width: 302px;
+        right: 10px;
+        top: 100px;
+        z-index: 1;
+    }
+
+    .gameFindeTitle{
+        width: 138px;
+        height: 18px;
+        margin-left: -20px;
+    }
+
     .card{
         width: 288px;
         height: 332px;
@@ -421,11 +553,7 @@ a:link{
         position: absolute;
         padding-top: 50px;  
     }
-
-    .platforms{
-        padding-left: 15px;
-    }
-
+   
     #genresDiv{
        position: relative;
        margin-top: -75px;
@@ -437,99 +565,6 @@ a:link{
         padding-left: 95px;
     }
 
-    #latMenu{
-        background-color: var(--backgroundHamb);
-    }
-    
-    h4{
-        position: absolute;
-        padding-left: 60px;
-        padding-bottom: 20px;
-    }
-    
-    .user{
-        position: absolute;
-        padding-top: 40px;
-        padding-left: 60px;
-    }
-    
-    #cross{
-        color: var(--canvassCross);
-    }
-    
-    #latMenu ul{
-        list-style: none;
-        padding-left: 0;
-        font-size: 20px;
-        font-weight: 800;
-        line-height: 28px;
-    }
-    
-    #latMenu ul li{
-        padding-top: 15px;
-    }
-    
-    .dropdown{
-        margin-top: -30px;
-    }
-    
-    .switchs{
-        padding-top: 425px;
-        font-size: 15px;
-        
-    }
-    
-    #lOut{
-        color: var(--fontColor);
-        text-decoration: none;
-        padding-left: 0;
-        line-height: 20px;
-        font-size: 15px;   
-    }
-    
-    #switchHamb{
-        cursor: pointer;
-        width: 44px;
-        height: 22px;
-        position: absolute;
-        margin-left: 20px;
-    }
-    
-    .form-switch{
-        padding: 0;
-    }
-    
-    .form-switch .form-check-input{
-        position: absolute;
-        margin-top: 5px;
-        margin-left: 8px;
-        font-size: 10px;
-        background-color: #E1E1E4;
-        border-color: transparent;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-        
-    }
-    
-    .state::before{
-        content: 'OFF';
-        position: absolute;
-        color: var(--dataOfGame);
-        margin-top: -18px;
-        margin-left: 10px;
-        font-size: 10px;
-    }
-    
-    input:checked + .state::before{  
-        content:'ON';
-        position: absolute;
-        margin-left: 103px;
-        font-size: 10px;
-        color:var(--iconsColor);
-    }
-    
-    .form-switch .form-check-input:checked {
-        background-color: var(--switchColor);
-    }
     
     .modal-content{
         width: 320px;
@@ -615,8 +650,108 @@ a:link{
         max-height: 50px;
     }
 
+    .switchs{
+        padding-top: 430px;
+        font-size: 15px;
+    }
+    
+    #views{
+        display: none !important;
+    }
+
+    .bi-search.form-control-feedback{
+        left: 10px;
+        top: 58px;
+        z-index: 2;
+    }
 
 }
+
+  #latMenu{
+        background-color: var(--backgroundHamb);
+    }
+    
+    h4{
+        position: absolute;
+        padding-left: 60px;
+        padding-bottom: 20px;
+    }
+
+    #content{
+        margin-top: 50px;
+    }
+    
+
+    .user{
+        position: absolute;
+        padding-top: 40px;
+        padding-left: 60px;
+    }
+    
+    #cross{
+        color: var(--canvassCross);
+    }
+    
+    #latMenu ul{
+        list-style: none;
+        padding-left: 0;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 28px;
+    }
+    
+    #latMenu ul li{
+        padding-top: 15px;
+    }
+    
+    .dropdown{
+        margin-top: -30px;
+    }
+    
+   
+    
+    #switchHamb{
+        cursor: pointer;
+        width: 44px;
+        height: 22px;
+        position: absolute;
+        margin-left: 20px;
+    }
+    
+    .form-switch{
+        padding: 0;
+    }
+    
+    .form-switch .form-check-input{
+        position: absolute;
+        margin-top: 5px;
+        margin-left: 8px;
+        font-size: 10px;
+        background-color: #E1E1E4;
+        border-color: transparent;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+    
+    .state::before{
+        content: 'OFF';
+        position: absolute;
+        color: var(--dataOfGame);
+        margin-top: -18px;
+        margin-right: 8px;
+        font-size: 10px;
+    }
+    
+    input:checked + .state::before{  
+        content:'ON';
+        position: absolute;
+        margin-left: 103px;
+        font-size: 10px;
+        color:var(--iconsColor);
+    }
+    
+    .form-switch .form-check-input:checked {
+        background-color: var(--switchColor);
+    }
 
 .modal-body{
     width: 1076px;
@@ -666,11 +801,13 @@ a:link{
     height: 47px;
 }
 
-.btn-close{
-    margin-left: 1030px;
-    padding-top: 30px;
-    height: 28px !important;
-    width: 28px;
+.btnM{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: 24px;
+    top: 25px;
+    z-index: 15;
 }
 
 .modal-body a {
@@ -848,3 +985,9 @@ a:link{
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+.btnC{
+    background-color: transparent;
+    border: none;
+    fill: var(--canvassCross) ;
+}

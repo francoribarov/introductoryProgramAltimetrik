@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Gamefinder login, access to our a game database!">
     <meta name="keywords" content="Games, GameFinder, SearchGame">  
@@ -27,7 +26,6 @@
 
 </head>
 <body>
-
     <header>
         <div id = "icon" class="container-fluid">
             
@@ -51,11 +49,10 @@
                     <div class="login">
                         <h1 id="firstTitle">Welcome! Log in or register</h1>
                         <h2 id="secondTitle">Log in to find the games you're looking for!</h2>
-                        <span class="errorInForm" ></span>
                         <form>
                             <div>
-                                <input class="form" type="email" id="email" placeholder="Email">                                 
-                                <input class="form" type="password" id="password" placeholder="Password">
+                                <input class="form" type="email" autocomplete="off" id="email" placeholder="Email">                                 
+                                <input class="form" type="password" autocomplete="off" id="password" placeholder="Password">
                                 <i class="bi bi-eye-slash fs-4" id="showPassword"></i>
                             </div>
                             
@@ -148,8 +145,12 @@
                         </div>
                     </div>     
             </div>
+            <div id ="snackbar"> 
+
+            </div>  
     </div>
-    <script src="js/scriptLogin.js"></script>
+    <script src="js/tokenAuth.js"></script>
+    <script type="module" src="js/scriptLogin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import {getData, DisplayModal, DataRender} from './renderModule.js'
+import {getData, DataRender} from './renderModule.js'
 import {snackBar} from './main.js'
 
 export let listOfGames = []
@@ -10,7 +10,7 @@ let response = []
 let searchResponse = []
 let resultsToShow = ''
 let resultsCounter 
-let searchResultHtml
+let searchResultHtml = ''
 let resultsLength = 0
 let descriptionView = false
 
@@ -42,9 +42,9 @@ export const getGames = async() => {
                         consoleId = 7
                         break;         
                 }
-                respSearch = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&parent_platforms=${consoleId}&page=${pageCounterForSearches}`)
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=fb03093ae0ac4fb5a6f3c80c38daaec8&parent_platforms=${consoleId}&page=${pageCounterForSearches}`)
             } else {
-                respSearch = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&search=${gameSearch}&page=${pageCounterForSearches}`)
+                respSearch = await fetch(`https://api.rawg.io/api/games?key=fb03093ae0ac4fb5a6f3c80c38daaec8&search=${gameSearch}&page=${pageCounterForSearches}`)
             }
             searchResponse = await respSearch.json()
             if (respSearch.ok == true){
@@ -56,7 +56,7 @@ export const getGames = async() => {
                 pageCounterForSearches++                
             }  else throw e       
         } else {
-            resp = await fetch(`https://api.rawg.io/api/games?key=681f753709be4ab8b42a3ccb6313766b&page=${ObjectToExport.pageCounter}`)
+            resp = await fetch(`https://api.rawg.io/api/games?key=fb03093ae0ac4fb5a6f3c80c38daaec8&page=${ObjectToExport.pageCounter}`)
             response = await resp.json()
             if (resp.ok == true){
                 ObjectToExport.resultsLength = searchResponse.length
@@ -86,10 +86,10 @@ export function getGameData(gameData){
     for (let index = 0; index < gameData.length; index++) {
       const gameId = gameData[index].id 
       const gameScreenshots = gameData[index].short_screenshots 
-      fetch(`https://api.rawg.io/api/games/${gameId}?key=681f753709be4ab8b42a3ccb6313766b&`)
+      fetch(`https://api.rawg.io/api/games/${gameId}?key=fb03093ae0ac4fb5a6f3c80c38daaec8&`)
         .then((res) => res.json())
         .then((data) => {
-            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=681f753709be4ab8b42a3ccb6313766b&`)
+            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=fb03093ae0ac4fb5a6f3c80c38daaec8&`)
                 .then((resMovie) => resMovie.json())
                 .then((dataMovie) => {
                     Object.assign(data, gameScreenshots)
@@ -168,3 +168,4 @@ export const search = debounce(async (searchTerm) => {
         snackBar(error)
     }
 })
+

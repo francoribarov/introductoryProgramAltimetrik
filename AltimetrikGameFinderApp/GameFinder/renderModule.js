@@ -23,22 +23,34 @@ export let DataRender = {
 
 const viewsCards = document.getElementsByClassName('card')
 const toggleView = document.getElementById('1col-view')
+const colView = document.getElementById('col1')
+const rowView = document.getElementById('col3')
 
 toggleView.addEventListener('click', (e) => {
     ObjectToExport.descriptionView = true 
-    for (let index = 0; index < viewsCards.length; index++) {
-        viewsCards[index].parentNode.className = 'col-lg-12 d-block-lg col-md-6 py-2'
+    colView.children[0].style.fill = 'var(--disabledSqu)'
+    colView.children[1].style.fill = 'var(--disabledBut)'
+    rowView.children[0].style.fill = 'var(--enabledSqu)'
+    rowView.children[1].style.fill = 'var(--enabledBut)'
+    for (let index = 0; index < viewsCards.length; index++){
+        viewsCards[index].parentNode.className = 'col-lg-12 d-block-lg col-md-12 py-2'
         viewsCards[index].classList.add("columnMode")        
         viewsCards[index].children[2].children[1].children[0].children[1].className = 'dateColumn' 
         viewsCards[index].children[2].children[1].children[0].children[1].children[0].className = 'iconsColumn'
         viewsCards[index].children[3].className = 'descriptionView'
-        cardsTo.style.setProperty("padding-left", "150px")
-    }
-    
+        if (window.innerWidth <= 780)
+        cardsTo.style.setProperty("padding-left", "25px")
+        else
+            cardsTo.style.setProperty("padding-left", "150px")
+    } 
 })
 
 const toggleViewThree = document.getElementById('col-view')
 toggleViewThree.addEventListener('click', (e) => {
+    rowView.children[0].style.fill = 'var(--disabledSqu)'
+    rowView.children[1].style.fill = 'var(--disabledBut)'
+    colView.children[0].style.fill = 'var(--enabledSqu)'
+    colView.children[1].style.fill = 'var(--enabledBut)'
     for (let index = 0; index < viewsCards.length; index++) {
         viewsCards[index].classList.remove("columnMode")
         ObjectToExport.descriptionView = false
@@ -60,6 +72,7 @@ let platformSize
 let iconsCol
 let viewMode 
 let genresCol
+let viewsTablet
 
 DataRender.gamesCards = cardsTo 
 export const getData = response =>{
@@ -70,16 +83,18 @@ export const getData = response =>{
             platformSize = 'dateColumn' 
             iconsCol =  'iconsColumn'
             viewMode = 'columnMode'
+            viewsTablet = 12
         }else{ 
             views = 4
             platformSize = 'col-lg-4 ps-0 col-6'
             iconsCol =  'container'
             viewMode = ''
+            viewsTablet = 6
         }
         
         DataRender.cardsTo.innerHTML += `
 
-        <div class ="col-lg-${views} d-block-lg col-md-6 py-2">
+        <div class ="col-lg-${views} d-block-lg col-md-${viewsTablet} py-2">
         <div id = ${game.id} class="card mx-2 mt-4 ${viewMode}">
             <input type ="image" class="like" value="false" src ="img/Heart.png">
             <img class="card-img" id = "gameFrontPage" src="${game.background_image || noBackground}" alt="gameFrontPage">
@@ -185,15 +200,16 @@ export const getData = response =>{
         }
     })
 }, {
-	rootMargin: '0px 0px 600px 0px',
+	rootMargin: '0px 0px 300px 0px',
 	threshold: 1.0
 }) 
     let lastGame
+    let gamesDisplayed
     if (response.length > 0 ) {
         if ((lastGame) && (DataRender.id != 746582)){ // If id = 746582 it is the last game
             observer.unobserve(lastGame)
         }
-        let gamesDisplayed = document.querySelectorAll('.card')
+         gamesDisplayed = document.querySelectorAll('.card')
         if (gamesDisplayed.length > 17)
             lastGame = gamesDisplayed[gamesDisplayed.length - 17]
         else 
@@ -234,7 +250,11 @@ export function DisplayModal(CardTitle){
                         <div class="modal-content">
                             <div class= "gradient">                         
                             <img class="modalBackground" src="${bgGame || noBackground}" alt="Background of the Game">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button class = "btnM" data-bs-dismiss="modal" aria-label="Close">
+                            <svg type="button" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29303 5.29296C5.48056 5.10549 5.73487 5.00017 6.00003 5.00017C6.26519 5.00017 6.5195 5.10549 6.70703 5.29296L12 10.586L17.293 5.29296C17.3853 5.19745 17.4956 5.12127 17.6176 5.06886C17.7396 5.01645 17.8709 4.98886 18.0036 4.98771C18.1364 4.98655 18.2681 5.01186 18.391 5.06214C18.5139 5.11242 18.6255 5.18667 18.7194 5.28056C18.8133 5.37446 18.8876 5.48611 18.9379 5.60901C18.9881 5.7319 19.0134 5.86358 19.0123 5.99636C19.0111 6.12914 18.9835 6.26036 18.9311 6.38236C18.8787 6.50437 18.8025 6.61471 18.707 6.70696L13.414 12L18.707 17.293C18.8892 17.4816 18.99 17.7342 18.9877 17.9964C18.9854 18.2586 18.8803 18.5094 18.6948 18.6948C18.5094 18.8802 18.2586 18.9854 17.9964 18.9876C17.7342 18.9899 17.4816 18.8891 17.293 18.707L12 13.414L6.70703 18.707C6.51843 18.8891 6.26583 18.9899 6.00363 18.9876C5.74143 18.9854 5.49062 18.8802 5.30521 18.6948C5.1198 18.5094 5.01463 18.2586 5.01236 17.9964C5.01008 17.7342 5.11087 17.4816 5.29303 17.293L10.586 12L5.29303 6.70696C5.10556 6.51943 5.00024 6.26512 5.00024 5.99996C5.00024 5.73479 5.10556 5.48049 5.29303 5.29296Z" fill="#FFFFFF"/>
+                            </svg>
+                            </button>
                             <div id= "mainM" class="container-fluid">
                                 <div class="modal-body">
                                     <div class="container-fluid bigContainer">
@@ -266,7 +286,7 @@ export function DisplayModal(CardTitle){
                                             <div class="row">
                                                 <div class="col-5">
                                                     <button type="button" class="btn btn-primary wishlistButton">Add to wishlist</button>
-                                                    <button type="button" class="btn btn-outline-primary purchaseButton d-none d-xs-block">Purchase</button>
+                                                    <button type="button" class="btn btn-outline-primary purchaseButton d-none d-xs-block">Purchase</button>  
                                                     <div class = "infoAboutTheGame">
                                                         <div class = "InfoContainer platform">
                                                             <p class="platform">Platforms</p>

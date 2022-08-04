@@ -72,9 +72,9 @@ form{
     border-radius: 4px; 
 }
 
-.checkField{
-    border-color: var(--loginError);
-    border-top: var(--loginError);
+
+.form.checkField{
+    border: 3px solid  var(--loginError);
 }
 
 .errorInForm{
@@ -92,6 +92,7 @@ form{
     z-index: 2;
     color: var(--colorLogIn);
 }
+
 
 .form{
     border-top: 150px ;
@@ -246,3 +247,46 @@ hr{
 }
 
 /* end sliders and carousel buttons */
+
+#snackbar{
+    visibility: hidden; 
+    min-width: 250px;
+    margin-left: -125px;
+    color: var(--colorLinks);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 2px;
+    padding-bottom: 50px;
+    margin-left: -250px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+      
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, fadeout 0.5s 5.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
